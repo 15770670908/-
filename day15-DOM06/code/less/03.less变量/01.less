@@ -1,0 +1,48 @@
+//1.作为普通变量
+@mainColor: #e4153f;
+
+//2.变量作为属性名使用  使用的时候 把变量用{}包起来
+@h: height;
+
+//3.作为选择器的名字来使用
+@b: #box;
+
+//4.保存url
+@url1: "https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg";
+
+@url2: url("https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg");
+
+@url3: url(@url1);
+
+@{b} {
+    width: 100px;
+    @{h}: 100px;
+    background-color: @mainColor;
+
+    .con {
+        background-color: #fff;
+        width: 50px;
+        height: 50px;
+        color: @mainColor;
+        // background: url(@url1);
+        // background: @url2;
+        background: @url3;
+    }
+}
+
+
+
+// less中变量延迟加载
+@var: 0;
+
+.class {
+    @var: 1;
+
+    .brass {
+        @var: 2;
+        three: @var; //3
+        @var: 3;
+    }
+
+    one: @var; //1
+} 

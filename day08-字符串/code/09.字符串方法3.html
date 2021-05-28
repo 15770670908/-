@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        /* text-transform: uppercase; */
+        /* text-transform: lowercase; */
+        /* text-transform: capitalize */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>HEllO hAi JInG</div>
+    <script>
+      /* 
+            字符串转换：
+                toLowerCase():
+                    字符串转小写
+
+                toUpperCase()：
+                    字符串转大写
+
+
+            split():
+                将字符串转为数组
+                - 如果不传参，则把字符串当做数组唯一一个值
+                - 可以传递参数，控制字符串以什么字符进行切割 转换为数组
+    
+        */
+
+      /* var str = "HEllO hAi JInG";
+        console.log(str.toLowerCase());
+        console.log(str.toUpperCase()); */
+
+      var str = "HEllO hAi JInG";
+      console.log(str.split());
+      console.log(str.split(" "));
+      console.log(str.split(""));
+
+      //把字符串翻转
+      var str = "haijinggege";
+      /* var newStr = "";
+        for (var i = str.length - 1; i >= 0; i--) {
+            newStr += str[i];
+        }
+        console.log(newStr) */
+
+      /* var strArr = str.split("")
+        console.log(strArr);
+        var reStrArr = strArr.reverse();
+        console.log(reStrArr);
+        var re = reStrArr.join("");
+        console.log(re); */
+
+      // var re = str.split("").reverse().join("");
+
+      /* 
+            字符串去空格
+                trim();前后去空格
+                trimEnd();后去空格
+                trimStart();前去空格
+        
+        */
+
+      var str = "   hai   jing   ";
+      console.log(str.trim());
+      console.log(str.trimEnd());
+      console.log(str.trimStart());
+
+      //中间去空格
+      /* var str = "  11 2 3 4 54   5  6    ";
+        var reg = /\s/g;
+        var re = str.replace(reg, "");
+        console.log(re); */
+
+      /* var str = "  11 2 3 4 54   5  6    ";
+        var newStr = "";
+        for (var i = 0; i < str.length; i++) {
+            if (str[i] !== " ") {
+                newStr += str[i];
+            }
+        }
+        console.log(newStr) */
+
+      var str = "  11 2 3 4 54   5  6    ";
+      var re = str.split(" ").join("");
+      console.log(re);
+    </script>
+  </body>
+</html>

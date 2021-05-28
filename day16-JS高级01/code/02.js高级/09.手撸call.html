@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            1.判断context
+            2.给context扩展一个方法ff
+            3.调用context.ff
+            4.删除ff方法
+            5.获取实参 在调用ff的时候 传入
+            6.把ff这个名字换了
+        
+        
+        */
+        /* 
+            手写call:
+                - call是每一个函数都有的
+                - call可以改变函数的this指向
+                - call可以调用函数
+                - 函数执行的时候 call可以给函数传参
+        
+        */
+
+        Function.prototype.myCall = function (context) {
+            //根据call的特征判断context的类型
+            //如果context是null或者undefined 则context应该为window
+            if (context === null || context === undefined) {
+                context = window;
+            }
+            //如果context是基本包装类型，则context应该是当前类型的基本包装对象
+            if (typeof context != "object" && typeof context != "function") {
+                context = Object(context);
+            }
+            //如果context是对象类型，则不对context进行修改
+
+            //拿到用户调用myCall时 为fn传入的参数  arguments代表实参
+            console.log(arguments);
+            //截取arguments的第二位以后的值 用数组保存
+            // console.log(Array.prototype.slice.call(arguments, 1))
+            var arg = Array.from(arguments).slice(1);
+            console.log(arg);
+
+
+            //此时this指向调用myCall的函数fn（姑且认为fn就是调用myCall的函数）
+            //目标：调用fn 并且把fn的this指向context
+            //给context扩展一个方法 赋值为fn  如果context调用了fn，则fn的this就会指向context
+            // context.ff = this;
+            //优化，希望给context扩展一个唯一的不重名的方法名
+            //可以把时间戳转为36进制的值，作为属性key，可以不重名
+            var key = Date.now().toString(36);
+            context[key] = this;
+
+            //如果context调用了ff方法，则说明：fn调用了，fn的this指向了context
+            // context.ff();
+            // eval("context.ff(" + arg.toString() + ")");
+            eval("context[key](" + arg.toString() + ")");
+
+            //因为为了实现逻辑，给context扩展了一个方法，因为这个方法在后来不需要了，所以可以把这个方法删除
+            // delete context.ff;
+            delete context[key];
+
+        }
+
+        function fn(a, b) {
+            console.log(a, b);
+            console.log(this, a + b);
+        }
+
+        fn.myCall(1, 1, 2);
+        fn.myCall("abc", 1, 2);
+        fn.myCall(true, 1, 2);
+        fn.myCall([1, 2], 1, 2);
+        fn.myCall({
+            name: "laowang"
+        }, 1, 2);
+
+
+
+        /* 
+            理解：  让ff的this指向o
+        
+        */
+        function ff() {
+            console.log(this);
+        }
+        var o = {};
+        //给o扩展一个方法 赋值为ff 则ff的this就指向o了
+        o.f = ff;
+        o.f();
+
+
+
+        /* 
+            参数用数组保存 怎么传参
+        */
+        /* var arr = [1, 2, 3]; //'1,2,3'
+
+        function fn(a, b, c) {
+            console.log(a + b + c)
+        }
+        // eval("fn(" + "1,2,3" + ")")
+        eval("fn(" + arr.toString() + ")") */
+    </script>
+</body>
+
+</html>

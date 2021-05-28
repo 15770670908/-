@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Math.abs() 绝对值 
+        console.log(Math.abs(1));
+        console.log(Math.abs(-1));
+
+        //Math.ceil()向上取整
+        //Math.floor()向下取整
+        //Math.round()四舍五入
+        console.log(Math.ceil(3.4)); //4
+        console.log(Math.ceil(3.6)); //4
+        console.log(Math.ceil(-3.6)); //-3
+
+        console.log(Math.floor(3.4)); //3
+        console.log(Math.floor(3.6)); //3
+        console.log(Math.floor(-3.6)); //-4
+
+
+        console.log(Math.round(3.4)); //3
+        console.log(Math.round(3.6)); //4
+        console.log(Math.round(-3.6)); //-4
+        console.log(Math.round(-3.3)); //-3
+        console.log(Math.round(-3.5)); //-3
+        console.log(Math.round(3.5)); //4
+
+
+        //Math.min()  Math.max()
+        console.log(Math.min(1, 4, 6, 3, 4, 5, 7, 4));
+        console.log(Math.max(1, 4, 6, 3, 4, 5, 7, 4));
+
+
+        // Math.pow(a,b):求a的b次方
+        console.log(Math.pow(2, 10)); //1024
+        console.log(2 ** 10); //1024
+
+        // Math.sqrt();//求平方根
+        console.log(Math.sqrt(2)); 
+
+
+        //弧度= 弧长/半径
+        /* 一个圆的弧长： 2 * PI * r
+        一个圆的弧度： 2 * PI * r / r = 2 * PI */
+        //1度的弧度是 2*PI/360
+
+        //Math.sin  Math.cos Math.tan  要求内部书写的是弧度
+        //sin:对边比斜边  cos：邻边比斜边  tan：对边比邻边
+        console.log(Math.sin(30 * 2 * Math.PI / 360));
+        console.log(Math.cos(60 * 2 * Math.PI / 360));
+        console.log(Math.tan(60 * 2 * Math.PI / 360));
+    </script>
+</body>
+
+</html>

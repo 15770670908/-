@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            闭包：
+                闭包的条件：
+                    - 函数嵌套函数
+                    - 内部函数使用外部函数的变量
+                    - 调用外部函数
+
+                闭包到底是什么：
+                    - 通俗的理解：函数内部嵌套的函数
+                    - 浏览器查看后理解：内部函数的Scopes中，包含引用外部函数变量的一个对象
+
+                闭包的作用：
+                    - 延长了局部变量的生命周期
+                    - 在外部控制局部变量
+
+                闭包的缺点：
+                    - 局部变量会长期驻留在内存中，可能会造成内存泄漏(IE9以下)
+
+                解决闭包带来的缺点：
+                    - 减少使用闭包
+                    - 及时释放
+        
+        */
+        function outer() {
+            var a = 1;
+            var b = 2;
+
+            function inner() {
+                var c = 3;
+                console.log(a++);
+                // console.log(c);
+            }
+            return inner;
+        }
+
+        var fn = outer();
+        fn(); //1
+        fn(); //2
+        fn(); //3
+        var fn2 = outer();
+        fn2(); //1
+        fn2(); //2
+        fn(); //4
+        fn2(); //3
+
+        fn = null;
+        fn2 = null;
+    </script>
+</body>
+
+</html>

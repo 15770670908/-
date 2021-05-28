@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            location对象和url信息相关
+                href : 声明或获取当前文档完整的URL
+                protocol:协议部分包括后缀的冒号。例如http:
+                host:主机和端口名称 www.baidu.com:8080
+                hostname:主机名称
+                port：端口号
+                pathname 路径部分
+                search：url的查询部分，包括前导问号
+                hash：锚部分包括前导 #
+
+                assign方法 :和href相当
+                reload方法 :重新加载文档
+                replace方法 :可以装载一个新文档而无须为它创建一个新的历史记录。替换当前文档的历史记录
+        
+        */
+
+        document.onclick = function () {
+            /* console.log(location);
+            console.log(location.href);
+            console.log(location.protocol); //http:
+            console.log(location.host); //127.0.0.1:5500
+            console.log(location.hostname); //127.0.0.1
+            console.log(location.port); //5500
+            console.log(location.pathname); ///day12-DOM03/code/02.location.html
+            console.log(location.search); //?user=laowang&pass=12345
+            console.log(location.hash); //#abc */
+
+
+            //location.href属性除了可以设置以外 还可以进行跳转
+            // location.href = "http://www.baidu.com";
+
+            // location.assign("http://www.baidu.com")
+            // location.reload();
+            // location.replace("http://www.baidu.com");
+        }
+    </script>
+</body>
+
+</html>

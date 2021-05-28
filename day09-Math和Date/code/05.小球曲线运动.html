@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        position: fixed;
+        left: 0;
+        top: 251px;
+        transition: all 10ms linear;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box"></div>
+    <script>
+      var oBox = document.getElementById("box");
+      //定义一个left的初始值
+      var boxLeft = 0;
+      var baseTop = 251;
+      setInterval(function () {
+        //根据正弦曲线生成位置
+        boxLeft++;
+
+        //假设boxLeft是角度，则计算对应的sin的值
+        var boxTop = Math.sin((boxLeft * 2 * Math.PI) / 360);
+        // console.log(boxTop);
+
+        oBox.style.left = boxLeft + "px";
+        oBox.style.top = -boxTop * 200 + baseTop + "px";
+
+        //给元素生成随机颜色
+        var R = random(0, 256);
+        var G = random(0, 256);
+        var B = random(0, 256);
+        // oBox.style.backgroundColor = "rgb(" + R + "," + G + "," + B + ")"
+      }, 20);
+
+      function random(a, b) {
+        return Math.floor(Math.random() * (b - a) + a);
+      }
+    </script>
+  </body>
+</html>

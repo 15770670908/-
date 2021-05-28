@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            变量：
+                - 变量相当于容器，值相当于容器内装的东西，而变量名就是容器上贴着的标签，通过标签可以找到变量的值
+                - js变量是松散类型（弱类型，动态类型），我们只用通过var即可声明变量，可以随意更改变量保存的值
+            
+            声明变量：
+                - var + 变量名 = 值;
+                    = 是赋值
+
+                - 可以给变量随意更换值
+
+                - 可以多次声明同一个变量
+
+                - 可以使用逗号操作符 同时声明多个变量
+
+            标识符规范：
+                标识符：指的是变量、函数名、属性名、函数的参数的名字
+                命名规范：
+                    - 以字母 $ _ 为开头   abc  $a  _a
+                    - 后边可以是 数字 字母 $ _   $$$_  $a $12a_3
+                    - 不能出现空格
+                    - 区分大小写  a和A不是同一个变量
+                    - 不能用关键字和保留字
+
+                
+        
+        */
+
+        var a = 1; //把1赋值给了变量a
+        var b = 1 + 1; //赋值操作符 的优先级非常低（只有逗号比他更低），所以一般先执行 =右边 得到结果再赋值给左侧
+
+        console.log(a)
+        console.log(b)
+
+
+        a = 3;
+        console.log(a);
+
+
+        var b = 4;
+        console.log(b);
+
+
+        var c = 5,
+            d = 4,
+            e = 6;
+
+        b = "hello";
+    </script>
+</body>
+
+</html>

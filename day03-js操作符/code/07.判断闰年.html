@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            判断闰年：
+                年份能够被4整除且不能被100整除，或者年份能够被400整除
+        
+        */
+
+        var year = 2024;
+        //运算符优先级：求模>判断>与>或
+        if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            alert("是")
+        } else {
+            alert("不是")
+        }
+    </script>
+</body>
+
+</html>

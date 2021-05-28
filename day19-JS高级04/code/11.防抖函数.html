@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <script>
+        // 防抖函数：在规定时间内只执行最后一次
+
+        var oIpt = document.getElementById('ipt');
+
+        //核心代码
+        function center(e) {
+            console.log(1);
+            console.log(this);
+            console.log(e);
+        }
+        oIpt.oninput = debounce(center, 500);
+
+        //防抖函数
+        function debounce(fn, time) {
+            //初始化一个定时器
+            var timer = null;
+            //真正的事件函数
+            return function () {
+                //每次重新触发事件的时候，把上一次的定时器清除掉，重新设置开始计时
+                clearTimeout(timer);
+
+                //保存事件函数的this
+                var _this = this;
+
+                //保存事件对象
+                var e = arguments[0];
+                //设置一个定时器 延迟time事件执行fn
+                timer = setTimeout(function () {
+                    // fn();
+                    fn.call(_this, e);
+                }, time);
+            }
+        }
+    </script>
+</body>
+
+</html>

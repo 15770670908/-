@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Null类型：
+                Null类型：只有一个值 是null
+                代表空的意思
+
+            出现的场景：
+                - 当现在需要定义一个变量，但是未来才赋值的时候，可以把变量的值设置为null
+                - 当函数需要参数，但是不想传递的时候，可以传递一个null
+                - 把一个对象变成垃圾对象，可以将变量赋值为null
+                - 原型链终点是null
+        
+        */
+
+        //场景1
+        var a = null;
+        a = 3;
+
+        //场景2
+
+        function self(name, sex, age) {
+            console.log("我的名字是" + name)
+            console.log("我的性别是" + sex)
+            console.log("我的年龄是" + age)
+        }
+        self("海静", null, 18)
+
+
+        //场景3
+        var o = {
+
+        }
+        console.log(o)
+        //一旦一个对象不被任何变量引用的时候，这个对象就不可能再被使用了,这个对象就变成了垃圾对象
+
+        o = null;
+    </script>
+</body>
+
+</html>

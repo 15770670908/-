@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            递增递减运算符
+                ++、-- 可以让一个操作数进行加1 或者 减1
+
+                a ++:后置递增
+                ++ a:前置递增
+                a --:后置递减
+                -- a:前置递减
+
+
+                在一条语句指向让一个值加1 的情况下，前置和后置没有区别
+
+                在考虑返回值的情况下，两种是有区别的：
+                    - 后置:返回的是累加之前的值（先赋值后加1）
+                    - 前置：返回的是累加之后的值（先加一再赋值）
+    
+        */
+
+        /* //单纯的让count加1
+        var count = 3;
+        // count += 1;
+        // count++;
+        ++count;
+        console.log(count); */
+
+
+        /* var count = 3;
+        // k = count++;
+        // k = ++count;
+
+        // k = count--;
+        k = --count;
+        console.log(k) //2
+        console.log(count); //2 */
+
+
+
+        /* var a = 1;
+        // b = a++ + a++ + 1 + ++a + a++ + ++a + a + ++a;
+        // b = 1 + 2 + 1 + 4 + 4 + 6 + 6 + 7
+        console.log(a, b) //7 31 */
+
+
+        //使用a 并让a加一
+        console.log(a);
+        a++;
+
+        // 可以写为:
+        console.log(a++);
+    </script>
+</body>
+
+</html>

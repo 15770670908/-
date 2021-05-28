@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            indexOf:
+                - 检测元素在数组中第一次出现的位置
+                - 如果当前元素在数组中没有出现，则返回-1
+                - 参数2可以规定从第几位开始检测(可以为负，倒着数)
+
+
+            lastIndexOf:
+                和indexOf一样，只不过是从右向左查找
+
+        
+        
+        */
+        var arr = ["a", "b", "c", "d", "e", "f"];
+        var re = arr.indexOf("g");
+        console.log(re)
+
+
+        var o = {};
+        var arr2 = [1, 2, o, 3, {}, 5, o];
+        // var re2 = arr2.indexOf({});
+        // var re2 = arr2.indexOf(o);
+        // var re2 = arr2.indexOf(o, 3);
+        var re2 = arr2.indexOf(o, -5);
+        console.log(re2);
+
+
+
+        var o = {};
+        var arr3 = [1, 2, o, 3, {}, 5, o];
+        // var re3 = arr3.lastIndexOf(o);
+        // var re3 = arr3.lastIndexOf(o, 1);
+        var re3 = arr3.lastIndexOf(o, -1); 
+        console.log(re3);
+    </script>
+</body>
+
+</html>

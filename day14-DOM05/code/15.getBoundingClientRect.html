@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .inner {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+            /* position: relative; */
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        /* 
+           getBoundingClientRect()
+
+        */
+        var oBox = document.querySelector('.box');
+
+        console.log(oBox.getBoundingClientRect());
+        console.log(oBox.getBoundingClientRect().left);
+        console.log(oBox.getBoundingClientRect().top);
+    </script>
+</body>
+
+</html>

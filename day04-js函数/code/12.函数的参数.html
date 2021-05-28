@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            函数参数：
+                - 形参：定义函数的时候，预计需要的参数，书写在function的小括号中，多个形参使用逗号隔开，形参属于标识符，命名要求符合标识符规范
+                
+                - 实参：在调用函数的时候，实际传入的参数，多个参数使用逗号隔开
+
+                - 形参只能在当前函数内部生效
+        
+        */
+        //函数声明
+        //name和type就是形参
+        function fn(name, type) {
+            console.log("大家好");
+            console.log("我是" + name);
+            console.log("我是你们的" + type);
+        }
+
+        //fn调用的时候，传入的叫做实参
+        fn("静哥哥", "baobao");
+
+
+
+
+
+        //形参和实参匹配问题
+        //如果实参比形参少，则多余的形参的值是undefined
+        //如果实参比形参多，则忽略多余的参数，可以使用arguments获取到所有的实参
+        function fn2(a, b, c, d) {
+            console.log(a, b, c, d);
+        }
+        // console.log(a, b, c, d)
+
+        fn2(1, 2)
+        fn2(1, 2, 3, 4, 5, 6, 7)
+
+
+
+
+        //函数表达式传参：
+        var fn2 = function (a, b, c) {
+
+        }
+        fn2(1, 2, 3);
+
+        
+        //实例化Function创建函数传参
+        //Function可以接受多个参数，最后一个参数是函数体的代码，前边所有的参数都是形参
+        var fn2 = new Function("a", "b", "c", "console.log(a, b, c);console.log('hello')");
+        fn2(1, 2, 3)
+    </script>
+</body>
+
+</html>

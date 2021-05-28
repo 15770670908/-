@@ -1,0 +1,18 @@
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: #e4153f;
+}
+#box .con {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  color: #e4153f;
+  background: url("https://tva1.sinaimg.cn/large/00831rSTgy1gdnerxegkhj30j008d3yj.jpg");
+}
+.class {
+  one: 1;
+}
+.class .brass {
+  three: 3;
+}

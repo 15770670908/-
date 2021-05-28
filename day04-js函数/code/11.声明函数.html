@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            如何声明函数：
+                1.函数声明
+                    - 直接使用function 声明一个函数
+                    - function后跟函数名 + () +{}函数体
+                    - 具名函数
+
+                2.函数表达式
+                    - 把一个匿名函数赋值给一个变量，将来通过这个变量可以调用函数
+        
+                
+                3.实例化Function 
+                    - 直接new 一个Function得到一个函数
+                    */
+
+        //函数声明
+        function fn() {
+
+        }
+
+
+
+        //函数表达式
+        var fn1 = function () {
+
+        }
+
+
+        //实例化声明函数
+        var fn2 = new Function();
+        console.log(fn2);
+    </script>
+</body>
+
+</html>

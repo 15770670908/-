@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            display: flex;
+        }
+
+        #left {
+            width: 200px;
+            height: 300px;
+            background-color: hotpink;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        #change {
+            width: 200px;
+            height: 300px;
+            background-color: lawngreen;
+        }
+
+        #change button {
+            display: block;
+            width: 100%;
+            margin: 30px 0;
+        }
+
+        #right {
+            width: 200px;
+            height: 300px;
+            background-color: hotpink;
+            line-height: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div id="left">
+            <p>left的con1</p>
+            <p>left的con2</p>
+            <p>left的con3</p>
+            <p>left的con4</p>
+        </div>
+        <div id="change">
+            <button id="toRight">&gt;&gt;&gt;&gt;</button>
+            <button id="toLeft">&lt;&lt;&lt;&lt;</button>
+        </div>
+        <div id="right">
+            <p>right的con1</p>
+            <p>right的con2</p>
+            <p>right的con3</p>
+            <p>right的con4</p>
+        </div>
+    </div>
+    <script>
+        var oLeft = document.getElementById('left');
+        var oChange = document.getElementById('change');
+        var oRight = document.getElementById('right');
+        var oLeftPs = oLeft.querySelectorAll("p");
+        var oRightPs = oRight.querySelectorAll("p");
+        var oToLeft = document.getElementById('toLeft');
+        var oToRight = document.getElementById('toRight');
+
+        //给所有的左侧元素绑定事件 当点击的时候改变颜色
+        oLeftPs.forEach(function (item, index) {
+            item.onclick = function () {
+                this.style.background = "red";
+                this.dataset.click = true;
+            }
+        })
+
+        //给所有的右侧元素绑定事件 当点击的时候改变颜色
+        oRightPs.forEach(function (item, index) {
+            item.onclick = function () {
+                this.style.background = "red";
+                this.dataset.click = true;
+            }
+        })
+
+        //给toRight和toLeft绑定点击事件
+        oToRight.onclick = function () {
+            var oLeftPs = oLeft.querySelectorAll("p");
+            //遍历所有left的p标签，判断哪一个被选择中 则直接移动到右侧
+            oLeftPs.forEach(function (item, index) {
+                if (item.dataset.click) {
+                    oRight.appendChild(item);
+                    item.style.background = "transparent";
+                    delete item.dataset.click;
+                }
+            })
+        }
+
+
+        //给toRight和toLeft绑定点击事件
+        oToLeft.onclick = function () {
+            var oRightPs = oRight.querySelectorAll("p");
+            //遍历所有left的p标签，判断哪一个被选择中 则直接移动到右侧
+            oRightPs.forEach(function (item, index) {
+                if (item.dataset.click) {
+                    oLeft.appendChild(item);
+                    item.style.background = "transparent";
+                    delete item.dataset.click;
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

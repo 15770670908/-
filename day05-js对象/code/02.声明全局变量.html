@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            声明全局变量
+                1. 在全局作用域中 直接使用var 声明变量
+                2. 直接给一个没有声明的变量赋值，则会把这个变量声明为全局变量
+                3. 在任意位置给window对象扩展属性和方法，则也是全局变量和全局函数
+        
+        */
+
+        //全局变量a
+        var a = 1;
+
+        function fn() {
+            //声明一个全局变量
+            f = 1;
+
+            //此语句只声明了b  cde并没有被声明
+            var b = c = d = e = 2;
+
+            //给window对象扩展属性,其实就是全局变量
+            window.hello = "world";
+        }
+        fn();
+        console.log(c, d, e); //2 2 2
+        console.log(hello)
+    </script>
+</body>
+
+</html>

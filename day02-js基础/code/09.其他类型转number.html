@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            其他类型转number
+                - 使用Number方法转数字
+
+                - 字符串转数字  
+                    - 能转就转 不能转就是NaN 空的和空白字符的就是0
+
+                - boolean转数字
+                    true为1 false为0
+
+                - null和undefined 转数字
+                    null是0  undefined是NaN
+
+                - 对象转数字
+                    - 空数组是0 ，只有一位的数组，把这一位转数字
+                    - 其他全部是NaN
+        
+        */
+
+        // string转数字
+        console.log(Number("1"))
+        console.log(Number("20"))
+        console.log(Number("2.3"))
+        console.log(Number("-2.3"))
+        console.log(Number("-2.3a"))
+        console.log(Number("a1"))
+        console.log(Number("")) //0
+        console.log(Number(" ")) //0
+        console.log(Number("Infinity"))
+        console.log(Number("0b111"))
+
+        //boolean转数字
+        console.log(Number(true))
+        console.log(Number(false))
+
+        //null和undefined转数字
+        console.log(Number(null)) //0
+        console.log(Number(undefined)) //NaN
+
+        //对象转数字
+        console.log(Number([])) //0
+        console.log(Number([1])) //1
+        console.log(Number(["a"])) //NaN
+        console.log(Number([1, 2])) //NaN
+        console.log(Number({})) //NaN
+        console.log(Number(function () {})) //NaN
+    </script>
+</body>
+
+</html>

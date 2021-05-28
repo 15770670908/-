@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        /* 
+            selectors API:
+                HTML5提供两个新接口用来获取元素，可以使用css选择器的方式获取
+                document.querySelector("选择器") 无论选择器选择多少个元素，永远只获取第一个 单个
+                document.querySelectorAll("选择器");无论选择器选择多少个元素，永远获取的是一个nodeList对象，需要使用下标来获取具体元素
+        
+        */
+
+        var oBoxLi = document.querySelector("#box li");
+        var oBoxLi = document.querySelector("#box li:nth-child(2)");
+        console.log(oBoxLi)
+
+
+        var oBox = document.querySelectorAll("#box"); //一定是一个复数
+        // oBox.style.color = "red";
+        console.log(oBox);
+
+
+        var oBoxLis = document.querySelectorAll('#box li');
+        console.log(oBoxLis);
+
+
+        //nodeList对象是拥有forEach方法的
+        /* oBoxLis[0].style.backgroundColor = "red";
+        oBoxLis[1].style.backgroundColor = "red";
+        oBoxLis[2].style.backgroundColor = "red";
+        oBoxLis[3].style.backgroundColor = "red"; */
+
+        /* oBoxLis.forEach(function (item, index) {
+            item.style.backgroundColor = "red";
+        }) */
+    </script>
+</body>
+
+</html>

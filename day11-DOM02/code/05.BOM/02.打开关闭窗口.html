@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="open">打开</button>
+    <button id="close">关闭</button>
+    <script>
+        var oOpen = document.getElementById('open');
+        var oClose = document.getElementById('close');
+
+        var newWin = null;
+        oOpen.onclick = function () {
+            /* 
+                window.open():
+                    - 打开窗口
+                    - 参数1：url地址
+                    - 参数2：_self和_blank
+                    - 参数3：窗口的信息 比如大小 位置
+                    - 返回值：窗口的名字
+            
+            */
+
+
+            // window.open("http://www.2.cn");
+            // window.open("http://www.2.cn", "_self");
+            // window.open("http://www.2.cn", "_blank", "width=300,height=300,left=100,top=100");
+            newWin = window.open("http://www.2.cn", "_blank");
+            console.log(newWin)
+        }
+
+
+        oClose.onclick = function () {
+            // newWin.close();
+
+            //目前不能关闭自身
+            window.close();
+        }
+    </script>
+</body>
+
+</html>

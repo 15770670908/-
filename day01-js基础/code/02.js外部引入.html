@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <!-- 
+        外部引入js的位置 也是body关标签上边
+        
+        查看加载的资源是否加载成功，可以查看network
+
+        如果这个script标签用来加载外部js，则这个标签内不能再书写js，否则无效
+     -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./index.js">
+        alert(1); //无效
+    </script>
+</body>
+
+</html>

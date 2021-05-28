@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log(Array.prototype);
+
+        //可以给内置对象扩展方法
+
+        //给Array扩展一个去重的方法
+        //设计目标：返回去重后的数组，不影响原数组
+        Array.prototype.qc = function () {
+            //因为qc将来是被实例化数组调用的，所以qc的this指向当前调用qc的数组
+            var newArr = [];
+            this.forEach(function (item, index) {
+                if (newArr.indexOf(item) === -1) {
+                    newArr.push(item);
+                }
+            })
+            return newArr;
+        }
+
+        var arr = [1, 4, 3, 2, 3, 2, 3, 1, 4, 5, 6];
+        var re = arr.qc();
+        console.log(re);
+
+
+        //给String扩展一个去所有空格的方法
+        String.prototype.deleteSpace = function () {
+            //this代表调用deleteSpace的字符串
+            return this.replace(/\s/g, "");
+        }
+
+        var str = "  123  2     3 4 2 34 ";
+        var re = str.deleteSpace();
+        console.log(re);
+    </script>
+</body>
+
+</html>

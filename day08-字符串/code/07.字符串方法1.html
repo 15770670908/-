@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            concat方法：
+                合并字符串
+                但是现在都使用加法拼接，运行速度更快
+        
+        */
+
+        /* var str = "hello";
+        var re = str.concat("world");
+        console.log(str)
+        console.log(re) */
+
+
+        /* 
+            charAt();
+                - 查询某个下标的字符是什么,如果查询不到返回空串
+                - 可以直接使用下标代替，查询不到返回undefined
+        */
+        /* var str = "hello world";
+        console.log(str.charAt(2));
+        console.log(str.charAt(100));
+        console.log(str[2]);
+        console.log(str[100]); */
+
+
+        /* 
+            indexOf和lastIndexOf
+                - 查询某个字符串 在当前字符串中第一次出现的下标
+                - 如果查询不到则返回-1
+        
+        
+        */
+
+        /* var str = "hello world";
+        console.log(str.indexOf('l')) //2
+        console.log(str.indexOf('llo')) //2
+        console.log(str.indexOf('l', 5)) //9
+        console.log(str.indexOf('a', 5)) //-1
+        console.log(str.lastIndexOf('l')) //9 */
+
+
+        /* 
+            search:查询某个字符串第一次出现的位置
+                search中可以书写正则表达式
+                indexOf是search的底层，如果不牵扯到正则，请使用indexOf
+        
+        
+        */
+
+        /* var str = "hell2o world";
+        
+        //\d的规则是代表所有的数字
+        var reg = /\d/gi;
+        console.log(str.search(reg)) //2 */
+
+
+
+        /* 
+            match:找出所有符合条件的子字符串，组成一个数组
+        
+        */
+        /* var str = "张三15701665566李四15701665577";
+        var reg = /\d{11}/gi;
+        var re = str.match(reg);
+        console.log(re); */
+
+
+        /* 
+            replace
+            字符串的替换
+        */
+        /* var str = "a12a12a45";
+        //把所有的a替换为b(只能替换一个)
+        var re = str.replace("a", "b");
+        console.log(re); */
+
+
+        /* var str = "a12a12a45";
+        var re = str.replace(/a/gi, "b");
+        console.log(re); */
+
+
+        var str = "闫海静真英俊，他是真的棒，海静我喜欢你";
+        var reg = /英俊|棒|喜欢/gi;
+        var re = str.replace(reg, "**");
+        console.log(re);
+    </script>
+</body>
+
+</html>

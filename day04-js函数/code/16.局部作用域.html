@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            局部作用域：
+                - 我们使用函数划分作用
+                - 函数内部的作用域统称为局部作用域
+        
+        */
+
+        var a = 1;
+
+        function fn1() {
+            //因为a是全局作用域，可以在局部访问
+            console.log(a);
+
+            //在局部声明一个变量，这个变量是fn1中的局部变量，则这个变量只能在fn1中访问
+            var b = 2;
+            console.log(b);
+            var d = 6;
+            //这个fn2函数就是局部的函数
+            function fn2() {
+                console.log("fn2");
+                //fn2又构成了一个新的局部作用域
+                console.log(a, b); //因为a和b都是父作用域或者祖辈作用域的变量，在这里可以使用
+
+                var c = 3;
+                //如果此作用域的变量和祖辈作用域变量重名了，则以当前作用域为准
+                var d = 4;
+                console.log(d);
+
+                //获取到b然后把b修改了
+                b = 7;
+            }
+
+            fn2();
+
+            // console.log(c); //c是fn2中的局部变量 不可以访问
+            console.log(b);
+        }
+
+        fn1();
+        // console.log(b); //报错 b是局部 在全局不能访问
+        // fn2(); //报错 fn2是局部 在全局不能访问
+    </script>
+</body>
+
+</html>

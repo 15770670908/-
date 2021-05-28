@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.time("timer");
+        //计时器的事件并不是非常准确
+        //一旦遇到同步代码有大量的运算，则延迟时间更加明显
+        setTimeout(function () {
+            console.timeEnd("timer");
+        }, 100);
+
+        var sum = 0;
+        for (var i = 0; i < 100000000; i++) {
+            sum += Math.sqrt(i);
+        }
+    </script>
+</body>
+
+</html>

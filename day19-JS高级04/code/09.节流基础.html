@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+
+        //初始化一个 上一次的时间
+        var lastTime = 0;
+        oBox.onmousemove = function () {
+            //每次进入事件，获取当前的事件
+            var nowTime = Date.now();
+            console.log(nowTime - lastTime);
+            //设置一个看门狗
+            if (nowTime - lastTime < 200) {
+                return;
+            }
+            //如果放行了 则把当前的事件改为上一次的事件
+            lastTime = nowTime;
+
+            //假设以下是核心代码，我们无法控制事件触发频率，但是我们可以控制事件触发之后，核心代码执行的频率
+            console.log(1);
+        }
+    </script>
+</body>
+
+</html>

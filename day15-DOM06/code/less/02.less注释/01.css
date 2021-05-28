@@ -1,0 +1,5 @@
+/* 这个注释编译到css中 */
+#outer {
+  width: 100px;
+  height: 100px;
+}

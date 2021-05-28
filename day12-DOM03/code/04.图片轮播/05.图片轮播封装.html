@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 251px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: auto;
+        }
+
+        .con {
+            width: 1500px;
+            display: flex;
+
+        }
+
+        .con img {
+            width: 251px;
+            height: 500px;
+        }
+
+        .left,
+        .right {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(1, 200, 201, .7);
+            position: absolute;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .list {
+            display: flex;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .list li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 5px;
+            background-color: rgba(255, 255, 255, .3);
+        }
+
+        .list li.active {
+            background-color: rgba(255, 255, 255, .9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="../../images/01.jpg" alt="">
+                <img src="../../images/02.jpg" alt="">
+                <img src="../../images/03.jpg" alt="">
+                <img src="../../images/04.jpg" alt="">
+                <img src="../../images/05.jpg" alt="">
+            </div>
+
+            <p class="left">&lt;</p>
+            <p class="right">&gt;</p>
+
+            <ul class="list">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var oInner = document.querySelector('.inner');
+        var oConImgs = document.querySelectorAll('.con img');
+        var oLeft = document.querySelector('.left');
+        var oRight = document.querySelector('.right');
+        var oLis = document.querySelectorAll('.list li');
+        var autoTimer = null,
+            moveTimer = null;
+
+
+        //封装通用动画
+        function move() {
+            //控制滚动条走动的时候 以动画的方式走到终点位置
+            //起始位置
+            var startLocation = oInner.scrollLeft;
+            //结束位置
+            var endLocation = i * oConImgs[0].offsetWidth;
+            //起始步数
+            var startStep = 0;
+            //结束步数
+            var endStep = 40;
+            //每一步走的距离
+            var evertStep = (endLocation - startLocation) / endStep;
+
+            moveTimer = setInterval(function () {
+                startStep++;
+                if (startStep >= endStep) {
+                    clearInterval(moveTimer)
+                }
+                startLocation += evertStep;
+                oInner.scrollLeft = startLocation;
+            }, 20)
+        }
+
+        //封装自动走动画
+        function autoMove() {
+            //每隔两秒换张图
+            autoTimer = setInterval(function () {
+                //为了防止本次定时器运行的时候 上一次的动画定时器没有结束，则需要清空动画定时器
+                clearInterval(moveTimer);
+                //每隔两秒小标要累加
+                i++;
+                //判断i的临界值
+                if (i > oConImgs.length - 1) {
+                    i = 0; //让i变成第一张图的下标
+                }
+
+                //控制滚动条走动的时候 以动画的方式走到终点位置
+                //起始位置
+                var startLocation = oInner.scrollLeft;
+                //结束位置
+                var endLocation = i * oConImgs[0].offsetWidth;
+                //起始步数
+                var startStep = 0;
+                //结束步数
+                var endStep = 40;
+                //每一步走的距离
+                var evertStep = (endLocation - startLocation) / endStep;
+
+                moveTimer = setInterval(function () {
+                    startStep++;
+                    if (startStep >= endStep) {
+                        clearInterval(moveTimer)
+                    }
+                    startLocation += evertStep;
+                    oInner.scrollLeft = startLocation;
+                }, 20)
+
+                //控制下标
+                //先清 再给下标
+                oLis.forEach(function (item, index) {
+                    item.classList.remove("active");
+                })
+                oLis[i].classList.add("active");
+
+            }, 2000)
+        }
+
+        //封装下标设置
+        function list() {
+            //控制下标
+            //先清 再给下标
+            oLis.forEach(function (item, index) {
+                item.classList.remove("active");
+            })
+            oLis[i].classList.add("active");
+        }
+
+        //封装清定时器
+        function clear() {
+            //每次点击的时候把自动走清掉 
+            clearInterval(autoTimer)
+            //每次点击的时候把动画也清掉
+            clearInterval(moveTimer);
+        }
+
+        //初始化一个变量 i 用来代表当前是哪张图的下标
+        i = 0;
+
+        //刚进入页面要自动走
+        autoMove();
+
+        //右键点击
+        oRight.onclick = function () {
+            clear();
+
+            //每隔两秒小标要累加
+            i++;
+            //判断i的临界值
+            if (i > oConImgs.length - 1) {
+                i = 0; //让i变成第一张图的下标
+            }
+
+            move();
+
+
+            list();
+
+            autoMove();
+        }
+
+        oLeft.onclick = function () {
+            clear();
+
+            i--;
+            if (i < 0) {
+                i = oConImgs.length - 1;
+            }
+
+
+            move();
+
+
+            list();
+
+            autoMove();
+        }
+
+
+        oLis.forEach(function (item, index) {
+            item.onclick = function () {
+                clear();
+                //先清空
+                oLis.forEach(function (item, index) {
+                    item.classList.remove("active");
+                })
+
+                //
+                this.classList.add("active");
+
+                //index就是当前点击的位置  把index赋值给i即可
+                i = index;
+
+                move();
+
+
+                autoMove();
+
+            }
+        })
+    </script>
+</body>
+
+</html>

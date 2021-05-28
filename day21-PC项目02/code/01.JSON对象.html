@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            JSON对象：
+                轻量级数据交换格式
+        
+        */
+
+        var data = {
+            "student": [{
+                "name": "xiaowang",
+                "age": 18,
+                "score": {
+                    "math": 30
+                }
+            }],
+            do: function () {
+                console.log("hello")
+            }
+        }
+
+        //前后端传输只能传输字符串 所以需要把json对象转为字符串
+        // JSON.stringify（JSON对象转字符串）
+        var re = JSON.stringify(data);
+        console.log(re);
+
+        //JSON.parse()JSON字符串转JSON对象
+        var re2 = JSON.parse(re);
+        console.log(re2);
+
+
+        //1.JSON的stringify方法无法对函数 正则等对象的转换
+    </script>
+</body>
+
+</html>

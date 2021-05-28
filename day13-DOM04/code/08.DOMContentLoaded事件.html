@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var oImg = document.querySelector('img');
+        console.log(oImg); //null
+
+        window.addEventListener("DOMContentLoaded", function () {
+            var oImg = document.querySelector('img');
+            console.log(oImg); //img
+            console.log(oImg.offsetHeight); //0
+        })
+    </script>
+</head>
+
+<body>
+    <img src="../images/01.jpg" alt="">
+    <script>
+        /* 
+            window.onload:
+                当DOM节点及所有的资源全部加载完毕以后触发
+
+            DOMContentLoaded：
+                当DOM节点加载完成即可触发
+        
+    
+        */
+        var oImg = document.querySelector('img');
+        console.log(oImg);
+        console.log(oImg.offsetHeight);
+
+        window.addEventListener("DOMContentLoaded", function () {
+            console.log(oImg);
+            console.log(oImg.offsetHeight); //0
+        })
+
+        window.onload = function () {
+            console.log(oImg);
+            console.log(oImg.offsetHeight);
+        }
+    </script>
+</body>
+
+</html>

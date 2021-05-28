@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            匿名函数：
+                声明的函数没有起名字
+
+            IIFE:
+                - Immediately-Invoked Function Expression 立即调用函数表达式（匿名函数自调用）
+                - 作用：构成一个独立的作用域
+
+            小括号作用：
+                - 提升优先级
+                - 函数调用
+        
+        */
+
+        //匿名函数自调用 方法1：把函数整体扩住，然后后边添加小括号调用
+        (function () {
+            alert(1);
+        })();
+
+
+        //使用一元运算符 + - ~ !写在匿名函数前边，可以让函数变成一体，直接加小括号调用
+        ! function () {
+            alert(1);
+        }();
+
+        +
+        function () {
+            alert(2);
+        }();
+
+
+        -
+        function () {
+            alert(3);
+        }();
+
+        ~ function () {
+            alert(4);
+        }();
+    </script>
+</body>
+
+</html>

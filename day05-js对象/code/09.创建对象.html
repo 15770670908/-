@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            创建对象：
+                - 方法1：字面量创建
+                - 方法2：实例化构造函数创建
+
+            对象的属性：
+                - 对象中每个成员被称为属性
+        
+        
+        */
+
+        //字面量方法
+        var obj1 = {};
+        console.log(obj1);
+        //字面量方法在创建对象的时候就可以直接把属性书写在对象中
+        var obj3 = {
+            //对象的属性，对对象状态的描述
+            name: "iphone8p",
+            price: "1999",
+            color: "blue",
+            //也是对象的属性，是特殊的属性可以被调用，被称作为对象的方法
+            call: function () {
+                console.log("打电话");
+            }
+        }
+        //在创建对象之后，也可以直接给对象再次扩展属性和方法
+        obj3.type = "4g";
+        console.log(obj3);
+
+
+
+        //实例化方法
+        var obj2 = new Object();
+        console.log(obj2)
+        //实例化创建对象方法，不能在创建的时候扩展属性，但是可以直接给对象添加
+        obj2.name = "xiaowang";
+        obj2.eat = function () {
+            console.log("卤煮和豆汁");
+        }
+        console.log(obj2)
+
+
+        
+    </script>
+</body>
+
+</html>

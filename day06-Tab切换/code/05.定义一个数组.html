@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            定义数组：
+                - 字面量
+                    var arr = [];
+
+                - 实例化构造函数
+                    var arr = new Array();
+        
+        
+        */
+
+        //字面量
+        var arr1 = []; //空数组
+        //数组内可以保存任意类型的值
+        var arr2 = [null, undefined, function () {}, "123", 123, true, {},
+            [1, 2, 3]
+        ];
+
+        console.log(arr2);
+
+
+        //实例化构造函数
+        var arr3 = new Array(); //空数组
+        var arr4 = new Array("a", "b", "c", 1, 2, 3);
+        //如果构造函数的参数是只有一个，且是一个number的时候，则这个数字代表数组的长度，而不是数组的值
+        var arr5 = new Array(3);
+        console.log(arr5);
+    </script>
+</body>
+
+</html>

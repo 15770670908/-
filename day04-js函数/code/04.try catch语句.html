@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        //ReferenceError：读取不存在的变量时抛出
+        // console.log(a);
+
+        // SyntaxError：出现语法错误时抛出
+        /* for (var i = 0; i < 3; i++) {
+
+        } */
+
+        // TypeError：值的类型发生错误的时候抛出
+        /* var oLis = document.getElementsByTagName("li");
+        oLis.style.color = "red"; */
+
+
+        //我们可以自己书写一个报错信息 throw语句 抛出错误
+        // throw new Error("反正你错了")
+        // throw new SyntaxError("你说错话了")
+
+
+
+
+        /* 
+            try..catch...finally:
+                - 异常处理语句
+                - 当有一段代码可能出现错误，就会停止整个代码的执行
+                - 把可能出现错误的代码放在try中执行，如果不报错，则正常运行，否则将执行catch中的代码（对异常处理了）
+        */
+
+
+        try {
+            console.log(a);
+        } catch (e) {
+            //如果try中代码出现问题，则catch就会捕获到这个错误
+            //e就是catch中的错误信息
+            console.log(e);
+            //接下来就判断e是什么问题，然后对这个错误进行处理
+        } finally {
+            //无论try中是否出现问题，都会执行finally语句
+            console.log(1);
+        }
+
+        console.log("123");
+    </script>
+</body>
+
+</html>

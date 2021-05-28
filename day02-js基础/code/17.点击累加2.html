@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt" value="0">
+    <button id="btn">点我</button>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oIpt = document.getElementById('ipt');
+
+        //定义一个初始值
+        var base = 0;
+
+        oBtn.onclick = function () {
+            //思路：操作的时候可以先控制变量，然后得到计算结果之后 可以再赋值
+            base = base + 2;
+            //获取表单的是是value属性，设置也是
+            oIpt.value = base;
+        }
+    </script>
+</body>
+
+</html>

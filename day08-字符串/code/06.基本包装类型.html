@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            基本包装类型：
+                每当读取一个基本类型值的时候，后台就会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据
+
+                基本包装类型有：string   number  boolean
+        */
+
+        var str = 'abc';
+
+        var re = str.toUpperCase();
+        /*  
+            //当使用一个基本类型的属性的时候，会自动创建它的包装对象
+            var _str = new String(str);
+            //通过包装对象得到对应的属性
+            re =  _str.toUpperCase();
+            //结束之后把包装对象删除
+            _str = null;
+        
+        */
+
+
+
+        var str2 = "abc";
+        str2.hello = "world";
+        /* 
+            为什么不能给基本类型扩展属性和方法：
+
+                要给基本类型扩展属性，则需要创建对应的包装对象
+                var _str2 = new String(str2);
+                给包装对象添加属性
+                _str2.hello = "world";
+                运行结束后删除这个包装对象
+                _str2 = null;
+    
+        */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //父类
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.login = function () {
+            console.log('login');
+        }
+
+
+        //子类
+        function Student(subject, name, age) {
+            //构造函数继承
+            //调用父类，并把父类的this指向子类的this
+            Person.call(this, name, age)
+            this.subject = subject;
+        }
+
+        //原型链继承
+        //让实例化对象查找方法的时候，经过父类的原型对象，所以我们要修改原型对象，让子类实例化对象能够访问到父类的原型对象
+        //但是下边这个方法不合适，因为直接把父类的原型对象赋值给子类的原型对象，则父类和子类共享一个，如果子类修改了，则父类也会受到影响
+        // Student.prototype = Person.prototype;
+        //父类的实例化对象也能访问到父类的原型对象，所以可以把父类的实例化对象赋值给子类的原型对象
+        Student.prototype = new Person();
+
+        //修正构造器属性
+        Student.prototype.constructor = Student;
+        // console.log(Student.prototype.constructor === Student);
+
+        Student.prototype.time = function () {
+            console.log(896);
+        }
+
+        var s1 = new Student("h5", "laoyan", 20);
+        console.log(s1.login);
+        console.log(s1.constructor);
+    </script>
+</body>
+
+</html>

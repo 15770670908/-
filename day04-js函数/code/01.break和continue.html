@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            break：
+                当遇到break则直接退出循环(for和while)，执行循环后的代码
+
+            continue:
+                当遇到continue则直接跳出本次执行，继续执行下一次的循环
+        
+        
+        */
+
+        /* for (var i = 1; i < 50; i++) {
+            if (i % 3 !== 0) {
+                continue;
+            }
+            console.log(i)
+        } */
+
+        var a = 0;
+        while (a < 100) {
+            a++;
+            if (a === 20) {
+                // break;
+                continue;
+            }
+            console.log(a);
+
+        }
+
+
+        //练习：
+        var num = 0;
+        for (var i = 0; i < 5; i++) {
+            if (i == 3) {
+                // break; //
+                continue; //
+            }
+            num++;
+        }
+       // alert(num); //3  4
+    </script>
+</body>
+
+</html>

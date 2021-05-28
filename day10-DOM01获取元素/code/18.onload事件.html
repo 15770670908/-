@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var oImg = document.getElementById('img');
+            //获取图片的宽度
+            console.log(oImg.offsetWidth); //3204
+        }
+    </script>
+</head>
+
+<body>
+    <img src="../images/03.jpg" alt="" id="img">
+    <script>
+        /* 
+            load事件：是当资源加载完成以后触发，绑定给img、audio等
+
+            window.onload:当节点全部加载完成，并且所有的资源也全部加载完成以后触发
+
+        */
+        var oImg = document.getElementById('img');
+        //获取图片的宽度
+        console.log(oImg.offsetWidth); //0
+
+
+        window.onload = function () {
+            //获取图片的宽度
+            console.log(oImg.offsetWidth); //3204
+        }
+
+        oImg.onload = function () {
+            //获取图片的宽度
+            console.log(oImg.offsetWidth); //3204
+
+        }
+    </script>
+</body>
+
+</html>

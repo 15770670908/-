@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            set设置时间 返回时间戳
+        
+        */
+        var now = new Date();
+        //设置年份(number类型)
+        console.log(now.setFullYear(2022));
+        console.log(now)
+
+
+        //设置月份(月份从0开始计算)
+        console.log(now.setMonth(1)); //3
+        console.log(now)
+
+        //设置日期
+        console.log(now.setDate(12));
+        console.log(now)
+
+        //设置小时 24小时
+        console.log(now.setHours(12)); //14
+        console.log(now)
+
+
+        //设置分钟
+        console.log(now.setMinutes(30));
+        console.log(now)
+
+        //设置秒
+        console.log(now.setSeconds(50));
+        console.log(now)
+
+        //设置毫秒
+        console.log(now.setMilliseconds(99));
+        console.log(now)
+
+
+        //设置时间戳 在计算机元年的基础上累加
+        console.log(now.setTime(1000));
+        console.log(now)
+    </script>
+</body>
+
+</html>

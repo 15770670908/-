@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [3, 1, 5, 4, 7, 6, 9, 8, 9, 6, 5];
+
+        function quickSort(arr) {
+            //当数组的长度为1的时候，则直接返回该数组，不需要排序
+            if (arr.length <= 1) {
+                return arr;
+            }
+            //选出一个基准值
+            var center = arr.pop();
+            //设置一个左边的空数组和右边的空数组
+            var left = [];
+            var right = [];
+
+            //遍历数组 把数组的值一个个对基准值进行判断，
+            //如果是升序：把小于基准值的放在left中 大于放在右边right中
+            arr.forEach(function (item, index) {
+                if (item >= center) {
+                    right.push(item);
+                } else {
+                    left.push(item);
+                }
+            });
+            console.log(left, center, right);
+            //合并
+            var newArr = quickSort(left).concat(center, quickSort(right));
+            return newArr;
+        }
+
+        var re = quickSort(arr);
+        console.log(re)
+    </script>
+</body>
+
+</html>

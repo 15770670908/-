@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            超时调用定时器：
+                setTimeout();
+            清除超时调用定时器：
+                clearTimeout();
+        
+        */
+
+        //3000毫秒以后，使用eval把字符串的代码运行了
+        // setTimeout("alert(1)", 3000);
+
+        //3000毫秒以后，会自动调用函数
+        /* setTimeout(function () {
+            alert(3);
+        }, 3000) */
+
+        /* 
+            eval()
+                可以把字符串形式的代码穿入，并调用
+        
+        */
+        // eval("alert(2)");
+
+
+        //定时器的传参
+        function add(a, b) {
+            alert(a + b);
+        }
+        //传参方法1
+        // setTimeout("add(1,2)", 2000)
+        //从setTimeout的第三个参数开始  就是给定时器函数的传参
+        setTimeout(add, 2000, 2, 3)
+    </script>
+</body>
+
+</html>

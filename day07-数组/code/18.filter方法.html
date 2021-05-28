@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            filter方法：
+                - 筛选过滤
+                - 和forEach书写方法一致
+                - 返回一个数组，原数组的值依次进入回调函数，当回调函数返回true的时候，把这个值放入返回的新数组中
+        
+        
+        */
+
+        var persons = [{
+                name: "lily1",
+                sex: "女",
+                age: 18
+            },
+            {
+                name: "lily2",
+                sex: "男",
+                age: 19
+            },
+            {
+                name: "lily3",
+                sex: "女",
+                age: 11
+            },
+            {
+                name: "lily4",
+                sex: "男",
+                age: 28
+            },
+            {
+                name: "lily5",
+                sex: "女",
+                age: 22
+            },
+        ];
+
+        //挑选出所有的男生
+        var re = persons.filter(function (item, index) {
+            /* if (item.sex === '男') {
+                return true;
+            } */
+
+            return item.sex === '男';
+        });
+        console.log(re);
+    </script>
+</body>
+
+</html>

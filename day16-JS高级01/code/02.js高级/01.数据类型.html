@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            数据类型：
+                基本数据类型
+                    Number String Boolean Null Undefined (Symbol Bigint)
+                    其中：
+                        Number String Boolean也被称作基本包装类型
+
+                        怎么生成一个基本包装类型的包装对象呢?
+                            - 实例化当前的构造函数
+                            - 直接使用Object的方法
+                
+                复杂数据类型
+                    object:
+                        - Array
+                        - object
+                        - function
+                        - Math
+                        - Date
+                        - RegExp
+        
+        
+        
+        
+         */
+
+
+        //  怎么生成一个基本包装类型的包装对象呢?
+        var num1 = 1;
+        var num2 = new Number(1); //方法1
+        var num3 = Object(1); //方法2
+        console.log(num2);
+        console.log(num3);
+        console.log(typeof num2);
+
+
+        var str = "a";
+        var str2 = new String("a");
+        var str3 = Object("a")
+        console.log(str2);
+        console.log(str3);
+
+
+        var boo = true;
+        var boo2 = new Boolean(true);
+        var boo3 = Object(true);
+        console.log(boo2);
+        console.log(boo3);
+    </script>
+</body>
+
+</html>

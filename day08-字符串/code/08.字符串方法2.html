@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  
+            截取字符串：
+            substr():
+                - 参数1：指定的开始的下标
+                - 参数2：指定的截取的长度
+
+
+            substring():
+                - 参数1:指定开始下标(负数全部默认为0)
+                - 参数2：指定的结束的下标(不包含)(可以为负但是一般不为负)
+                - 如果参数2小于参数1  则他会自行互换位置截取
+
+            slice():
+                - 参数1：执行开始的下标
+                - 参数2：指定结束的下标
+                - 如果参数为负，则都是倒着数，然后开始截取
+        
+        */
+
+        var str = "hellohaijing";
+        console.log(str.substr(3, 5)); //lohai
+
+        console.log(str.substring(3, 5)); //lo
+
+        console.log(str.substring(-2, 5)); //hello
+
+        console.log(str.substring(4, -3)); //hello
+
+
+
+        console.log(str.slice(4, 8)); //ohai
+        console.log(str.slice(-4, -2)); //ji
+        console.log(str.slice(0, -1)); //hellohaijin
+    </script>
+</body>
+
+</html>

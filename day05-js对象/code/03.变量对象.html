@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //引入
+        fn();
+
+        function fn() {
+            //执行上下文的第一步，先把当前这段代码的所有的变量整合起来，构成一个对象，方便此段代码未来使用变量
+
+            console.log(a);
+            var a = 1;
+        }
+
+        /* 
+            变量对象：
+                - 变量对象是在本段代码中，储存了在上下文中定义的变量和函数声明
+                - 变量对象分为 全局的变量对象 和 局部变量对象
+                - 全局的变量对象就是window对象，所有的全局变量和函数都是window对象的属性和方法
+                - 进入局部代码，创建局部变量对象，首先变量对象包含了所有的形参和实参
+                - 第二步：把所有声明的函数以键值对的形式放在变量对象中,如果和形参有重名的 则直接替换
+                - 第三部：把所有声明的变量放在变量对象中，值都是undefined
+        */
+
+        //案例
+        function foo(a, c) {
+            /* 
+                var VO = {
+                    a:1,
+                    //c:2,
+                    arguments:[1,2,3,4],
+                    c:function(){},//函数是一体的，所有全部直接提升
+                    b:undefined,//所有变量声明都是只提升声明，不会赋值
+                    d:undefined,
+                    //c:undefined//提升变量的时候，如果和函数或形参同名，则不会覆盖之前的值
+
+                }
+            */
+            console.log(c) //
+            var b = 2;
+
+            function c() {}
+            var d = function () {};
+            b = 3;
+            var c = 6;
+        }
+        foo(1, 2, 3, 4);
+    </script>
+</body>
+
+</html>

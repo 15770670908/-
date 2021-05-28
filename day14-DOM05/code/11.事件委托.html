@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box');
+
+        var oLis = document.querySelectorAll('#box li');
+        /* 
+            事件委托：
+                - 事件代理、事件托管
+                - 把事件交给自己的父级或者祖辈元素绑定
+                - 冒泡的原理，当自己发生事件的时候，也会触发父级的代理的事件
+
+                - 在event事件对象中，有一个target属性代表事件发生的目标元素
+
+                -优点：
+                    - 减少遍历 提高效率
+                    - 可以给未来的元素绑定事件
+        
+        */
+
+        oBox.onclick = function (e) {
+            // console.log(1);
+            // console.log(e.target);
+            // e.target.style.background = "red";
+
+            if (e.target.nodeName === "LI") {
+                e.target.style.background = "red";
+            }
+        }
+
+
+        oBtn.onclick = function () {
+            var newLi = document.createElement("li");
+            newLi.textContent = "newli";
+            oBox.appendChild(newLi)
+        }
+    </script>
+</body>
+
+</html>

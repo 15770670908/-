@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="box">box</div>
+    </div>
+    <script>
+        /* 
+            阻止传播：
+                主流：e.stopPropagation();
+                IE低：e.cancelBubble = true;
+
+                阻止传播只能阻止当前事件的传播
+        
+        */
+        var oOuter = document.querySelector('.outer');
+        var oBox = document.querySelector('.box');
+
+        oBox.onmousedown = function (e) {
+            // e.stopPropagation();
+            console.log("鼠标按下");
+        }
+        oBox.onmouseup = function (e) {
+            // e.stopPropagation();
+            console.log("鼠标抬起");
+        }
+
+        oBox.onclick = function (e) {
+            e.stopPropagation();
+        }
+        oOuter.onclick = function () {
+            console.log("鼠标点击outer");
+        }
+    </script>
+</body>
+
+</html>

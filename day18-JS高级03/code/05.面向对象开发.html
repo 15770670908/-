@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            创建对象方法1：
+                - 字面量法
+                - 缺点：代码冗余
+        
+        */
+        /* var student1 = {};
+        student1.name = "laoyan";
+        student1.sex = "nan";
+        student1.do = function () {
+            console.log('php');
+        }
+        student1.eat = function () {
+            console.log('jwy');
+        }
+
+
+        var student2 = {};
+        student2.name = "xiaoyan";
+        student2.sex = "nv";
+        student2.do = function () {
+            console.log('html5');
+        }
+        student2.eat = function () {
+            console.log('yxg');
+        } */
+
+
+        /* 
+            创建对象 方法2：
+                - 工厂模式
+                - 缺点：无法确定当前对象的构造器是谁
+
+        
+        */
+
+        /* function createStudent(name, sex) {
+            var obj = {};
+            obj.name = name;
+            obj.sex = sex;
+            obj.do = function () {
+                console.log('html5');
+            }
+            obj.eat = function () {
+                console.log('yxg');
+            }
+            return obj;
+        }
+        var s1 = createStudent("laoyan", "nan");
+        var s2 = createStudent("laoyan", "nan");
+
+        console.log(s1.constructor); //Object */
+
+
+        /* 
+            创建对象方法3：构造函数方法
+                构造函数：
+                    - 当函数被new调用的话，这个函数被称作为构造函数
+                    - 构造函数的特点：
+                        1.首字母大写
+                        2.构造函数实例化后（new调用），返回一个实例化对象
+                        3.构造函数中的this指向其实例化对象 Z
+
+                缺点：
+                    - 方法无法共享
+        
+        */
+        /* function Student(name, age) {
+            this.name = name;
+            this.age = age;
+            this.do = function () {
+                console.log('html5');
+            }
+            this.eat = function () {
+                console.log('yxg');
+            }
+        }
+
+        var s1 = new Student("laoyan", "nan");
+        var s2 = new Student("xiaoyan", "nv");
+        console.log(s1);
+        console.log(s2);
+        console.log(s2.constructor === Student); //true
+
+        console.log(s1.do === s2.do);
+
+        //以下是相等的
+        var arr1 = [1, 2, 3];
+        var arr2 = [1];
+        Array.prototype.sort
+        console.log(arr1.sort === arr2.sort); //true */
+
+
+
+        /* 
+            创建对象方法4: 构造函数+原型方法
+        
+        
+        */
+        function Student(name, sex) {
+            this.name = name;
+            this.sex = sex;
+        }
+
+        Student.prototype.do = function () {
+            console.log('html5');
+        }
+        Student.prototype.eat = function () {
+            console.log('jwy');
+        }
+
+
+        var s1 = new Student("laoyan", "nan");
+        var s2 = new Student("xiaoyan", "nv");
+        console.log(s1, s2);
+        console.log(s1.do === s2.do); //true
+    </script>
+</body>
+
+</html>

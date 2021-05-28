@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oBox = document.querySelector('.box');
+        var oLis = document.querySelectorAll('.box li');
+        oBtn.onclick = function () {
+            /* 
+                复制节点
+                    cloneNode()方法
+                    - 参数是一个布尔值，代表深复制和浅复制
+                    - 深复制true 是复制当前元素及内部所有后代元素
+                    - 浅复制false 是赋值当前元素 不会复制内部元素
+
+            */
+
+            var newBox = oBox.cloneNode(true);
+            console.log(newBox);
+
+            document.body.appendChild(newBox)
+        }
+    </script>
+</body>
+
+</html>

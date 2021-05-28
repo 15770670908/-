@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            声明变量，保存不同类型的值
+        
+        */
+        var a = 1; //number
+        var b = "hello"; //string
+        var c; //undefined
+        var d = null; //object
+        var e = true; //boolean
+        var f = []; //object
+        var g = {}; //object
+        var h = function () {}; //function
+
+
+        /* 
+            检测数据类型：
+                typeof:检测一个数据的类型 并返回
+                typeof(数据)  或者  typeof 数据
+
+            typeof可以检测出的值有：
+                - typeof检测并不能完全正确检测出结果
+                - typeof可以得到的值：number string boolean undefined object function
+                - typeof可以正确检测的类型：number string boolean undefined
+
+            js数据类型：
+                - 5种基本类型：number string boolean undefined null
+                - 1种复杂类型：object（数组 对象 函数）
+                
+        
+        */
+        var re = typeof a; //变量接收住返回值
+        console.log(re); //打印返回值
+
+        console.log(typeof b) //直接把返回值打印出来
+        console.log(typeof c) //直接把返回值打印出来
+        console.log(typeof d) //直接把返回值打印出来
+        console.log(typeof e) //直接把返回值打印出来
+        console.log(typeof f) //直接把返回值打印出来
+        console.log(typeof g) //直接把返回值打印出来
+        console.log(typeof (h)) //直接把返回值打印出来
+
+    </script>
+</body>
+
+</html>

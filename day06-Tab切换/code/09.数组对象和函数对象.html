@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            函数有两个身份：
+                - 作为函数 可以被调用
+                - 作为对象 可以扩展属性和方法
+
+            数组有两个身份：
+                - 作为数组 可以保存值
+                - 作为对象 可以扩展属性和方法
+        
+        */
+
+        //函数
+        function fn1() {
+            console.log(1);
+        }
+        //函数调用
+        fn1();
+
+        fn1.hello = "world";
+        console.log(fn1);
+        //dir方法可以把函数当做一个对象，查看上边的属性和方法
+        console.dir(fn1);
+        console.log(fn1.hello);
+
+
+        //数组
+        var arr = [1, 2, 3];
+
+        //可以把数组当做一个对象扩展，但是不属于数组值的一份子
+        arr.hello = "world";
+        console.log(arr);
+        console.log(arr.hello);
+    </script>
+</body>
+
+</html>

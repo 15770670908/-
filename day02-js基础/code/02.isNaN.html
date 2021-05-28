@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">检测</button>
+    <script>
+        /* 
+            isNaN()方法：
+                是不是NaN，判断一个值是不是（类型转换后）NaN，如果是则返回true，否则返回false
+
+
+            需求：判断用户输入的内容是不是纯数字
+                1. 获取元素
+                2. 给btn绑定点击事件
+                3. 点击之后 拿到input的内容
+                4. 判断input内容是不是纯数字
+                5. 如果是则弹出输入正确，否则弹出输入错误
+        
+        */
+        //获取元素
+        var oIpt = document.getElementById('ipt');
+        var oBtn = document.getElementById('btn');
+
+        //2.给btn绑定点击事件（click）
+        //绑定事件的格式，给某个元素绑定一个事件，把一个函数赋值给事件属性，当事件触发后，函数会执行
+        oBtn.onclick = function () {
+            //3.点击之后 拿到input的内容
+            //获取一个表单元素的内容 使用获取表单元素的value属性即可
+            var userValue = oIpt.value;
+            console.log(userValue);
+
+            //4.判断input内容是不是纯数字 
+            //判断使用if(判断式){语句1}else{语句2}  如果判断式返回true，则执行语句1 否则执行语句2
+            //使用isNaN()检测内容，如果内容不是数字，则先转为数字
+            if (isNaN(userValue)) {
+                //如果返回true 说明userValue不是纯数字
+                alert("输入错误");
+            } else {
+                alert("输入正确");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+//当进行模式匹配的时候，参数是@_的混合  是必选的
+.mine(@_) {
+    width: 300px;
+    height: 100px;
+}
+
+//允许根据参数的值来改变 mixin的行为
+//这个参数不是用来向混合内部传递的  而是用来识别匹配的
+.mine(color1) {
+    background-color: red;
+}
+
+.mine(color2) {
+    color: pink;
+}
+
+.box1 {
+    //模式匹配到相应的混合
+    //匹配的关系类似于 switch语句
+    .mine(color1);
+}
+
+.box2 {
+    .mine(color2);
+}

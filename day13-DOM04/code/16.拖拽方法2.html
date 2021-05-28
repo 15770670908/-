@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+
+        oBox.onmousedown = function (e) {
+            //鼠标按下之后获取 鼠标到box边缘的距离 offsetX
+            var mouseToBox = {
+                x: e.offsetX,
+                y: e.offsetY
+            }
+
+            //鼠标移动事件
+            document.onmousemove = function (e) {
+                //移动的时候实时获取最新的clientX，减去固定值mouseToBox的值，得到就是元素最新的定位
+                var boxPoint = {
+                    x: e.clientX - mouseToBox.x,
+                    y: e.clientY - mouseToBox.y
+                }
+
+
+                //判断临界值
+                if (boxPoint.x <= 0) {
+                    boxPoint.x = 0;
+                } else if (boxPoint.x >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                    boxPoint.x = document.documentElement.clientWidth - oBox.offsetWidth
+                }
+
+                if (boxPoint.y <= 0) {
+                    boxPoint.y = 0;
+                } else if (boxPoint.y >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                    boxPoint.y = document.documentElement.clientHeight - oBox.offsetHeight
+                }
+
+                //赋值
+                oBox.style.left = boxPoint.x + "px";
+                oBox.style.top = boxPoint.y + "px";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

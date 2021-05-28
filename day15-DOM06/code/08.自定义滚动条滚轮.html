@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除系统滚动条 */
+        html,
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* #con {} */
+
+        .bar {
+            width: 40px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: lavenderblush;
+        }
+
+        .box {
+            width: 40px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            /* height: 60px; */
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div class="bar">
+        <div class="box"></div>
+    </div>
+    <script>
+        var oCon = document.getElementById('con');
+        var oBox = document.querySelector('.box');
+        var oBar = document.querySelector('.bar');
+        //给con生成内容
+        for (var i = 0; i < 100; i++) {
+            oCon.innerHTML += i + "<br>"
+        }
+
+
+        //滑块的高度自动生成
+        //比例计算：窗口的高度/文档的高度 = 滑块的高度 / 滑槽的高度
+        //计算一个比例scale =  文档的高度/滑槽的高度
+        //滑块的高度 = 窗口的高度/scale
+
+        //文档高度：
+        var oConSum = oCon.offsetHeight;
+        //滑槽高度：
+        var oBarSum = oBar.offsetHeight;
+        //窗口的高度
+        var winH = document.documentElement.clientHeight;
+
+        var scale = oConSum / oBarSum;
+        //滑块的高度计算
+        var oBoxH = winH / scale;
+        //赋值
+        oBox.style.height = oBoxH + "px";
+
+
+
+        oBox.onmousedown = function (e) {
+            e.preventDefault();
+            var mouseToBox = e.offsetY;
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+                var oBoxLoction = e.clientY - mouseToBox;
+
+                if (oBoxLoction <= 0) {
+                    oBoxLoction = 0;
+                } else if (oBoxLoction >= oBar.clientHeight - oBox.offsetHeight) {
+                    oBoxLoction = oBar.clientHeight - oBox.offsetHeight
+                }
+
+                oBox.style.top = oBoxLoction + "px";
+
+
+
+                //比例如下：滑块走的距离/滑块能够走的总距离 = con走的距离 / 文档内容con能够走的总距离
+                //可以计算一个固定scale = 文档内容con能够走的总距离/滑块能够走的总距离
+                // var scale = oConAll / oBoxAll;
+
+
+                //但是因为滑块的高度是之前计算出来的，所以文档能走的/滑块能走的 = 文档总高/滑槽总高
+                //所以可以直接使用之前计算的比例scale
+                //根据比例求con走的值  : 滑块走的距离*scale
+                var oConLocation = oBoxLoction * scale;
+                //赋值
+                oCon.style.transform = "translateY(-" + oConLocation + "px)";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+
+        //滚动事件让滑块走动
+
+
+        document.onmousewheel = scroll;
+        document.addEventListener("DOMMouseScroll", scroll, false);
+
+        function scroll(e) {
+            var t = oBox.offsetTop; //初始化一个滑块的定位
+            if (e.wheelDelta) {
+                if (e.wheelDelta < 0) {
+                    t += 5;
+                    console.log("上滚上滚");
+                } else {
+                    t -= 5;
+                    console.log("下滚下滚");
+                }
+            } else {
+                if (e.detail < 0) {
+                    t -= 5;
+                    console.log("下滚下滚");
+                } else {
+                    t += 5;
+                    console.log("上滚上滚");
+                }
+            }
+
+            //判断临界值
+            if (t <= 0) {
+                t = 0;
+            } else if (t >= oBar.clientHeight - oBox.offsetHeight) {
+                t = oBar.clientHeight - oBox.offsetHeight
+            }
+
+
+            oBox.style.top = t + "px";
+
+            //根据当前滑块位置 计算文档的位置
+            //根据比例求con走的值  : 滑块走的距离*scale
+            var oConLocation = t * scale;
+            //赋值
+            oCon.style.transform = "translateY(-" + oConLocation + "px)";
+        }
+
+
+        /* var arr = [];
+        for (var i = 0; i < 3; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[0]();
+        arr[1]();
+        arr[2](); */
+
+
+        /* console.log(a); //undefined
+        a = function () {
+            console.log(a);
+        }
+        a(); //fn
+        var a = 10;
+        console.log(a); //10 */
+    </script>
+</body>
+
+</html>

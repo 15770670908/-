@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            设置7天以后的现在时间
+        
+        */
+        /* //获取现在的时间 方法1
+        var now = new Date();
+
+        //获取当前的日期
+        var day = now.getDate();
+
+        //让当前的日期+7
+        day = day + 7;
+
+        //把日期设置给当前的时间
+        now.setDate(day);
+        console.log(now); */
+
+        /* var now = new Date();
+        now.setDate(now.getDate() + 7);
+        console.log(now); */
+
+
+        //获取现在的时间 方法2
+
+        // var time = new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 7);
+        var time = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7);
+        console.log(time);
+    </script>
+</body>
+
+</html>

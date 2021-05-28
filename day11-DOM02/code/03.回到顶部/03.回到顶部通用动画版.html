@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .box {
+            width: 100px;
+            height: 50px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: hotpink;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">回到顶部</div>
+    <script>
+        var oBox = document.querySelector('.box');
+        //绑定系统滚动条事件，当滚动条只要移动就会触发 触发以后判断
+        window.onscroll = function () {
+            //实时获取滚动条的距离
+            var nowScroll = window.pageYOffset;
+
+            //实时判断
+            if (nowScroll > 500) {
+                oBox.style.display = "block";
+            } else {
+                oBox.style.display = "none";
+            }
+        }
+
+
+        //回到顶部逻辑
+        //当点击回到顶部按钮，滚动条直接回到顶部
+        var timer = null;
+        oBox.onclick = function () {
+            //防止定时器累加，一般会在设置之前先清掉上一次的
+            clearInterval(timer);
+            //获取起始位置（当前滚动条的位置）
+            var startLocation = window.pageYOffset;
+            //获取结束位置
+            var endLocation = 0;
+            //获取起始步数(每次走一步会加1  用来判断临界值)
+            var startStep = 0;
+            //获取结束步数
+            var endStep = 40;
+            //求每一步所走的距离
+            var evertStep = (endLocation - startLocation) / endStep;
+
+            //每隔一定时间让走一步
+            timer = setInterval(function () {
+                //走一步 让起始步数累加，用来判断什么时候走完
+                startStep++;
+                //判断临界值
+                if (startStep >= endStep) {
+                    clearInterval(timer);
+                }
+                //每次走的时候让起始位置累加每一步应该走的值
+                startLocation += evertStep;
+                //把起始位置计算好的值赋值给滚动条
+                window.scrollTo(0, startLocation);
+            }, 10)
+        }
+    </script>
+</body>
+
+</html>

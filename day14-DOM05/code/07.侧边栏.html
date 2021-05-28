@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .aside {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .aside .con {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            margin: 30px 0;
+
+        }
+
+        .aside .con h2 {
+            width: 60px;
+            height: 60px;
+            background-color: red;
+            text-align: center;
+            line-height: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .aside .con .move {
+            width: 100px;
+            height: 60px;
+            background-color: lightpink;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aside">
+        <div class="con">
+            <h2>con</h2>
+            <p class="move">侧边栏</p>
+        </div>
+        <div class="con">
+            <h2>con</h2>
+            <p class="move">侧边栏</p>
+        </div>
+        <div class="con">
+            <h2>con</h2>
+            <p class="move">侧边栏</p>
+        </div>
+    </div>
+    <script>
+        var oCons = document.querySelectorAll('.con');
+        var oMoves = document.querySelectorAll('.con .move');
+        var l = 0;
+        var timer = null;
+        oCons[0].onmouseenter = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l--;
+                if (l <= -100) {
+                    l = -100;
+                    clearInterval(timer);
+                }
+                oMoves[0].style.left = l + "px";
+            }, 10)
+        }
+
+        oCons[0].onmouseleave = function () {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                l ;
+                if (l >= 0) {
+                    l = 0;
+                    clearInterval(timer);
+                }
+                oMoves[0].style.left = l + "px";
+            }, 10)
+        }
+    </script>
+</body>
+
+</html>

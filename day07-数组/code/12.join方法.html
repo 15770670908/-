@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            join方法：
+                - 把数组转为字符串
+                - 可以在join方法中传入参数，代表替代字符串中的逗号
+                - 不会改变原数组，返回一个字符串
+                - 其实是把每一个元素调用了toString方法转字符串（null和undefined转为空串）
+        
+        */
+        var arr = ["a", "b", undefined, 2];
+        //在不传入任何参数的情况下，和toString的转换是基本类似的
+        // var re = arr.join(); //a,b,1,2
+        // var re = arr.join("-");
+        var re = arr.join("");
+
+        console.log(arr)
+        console.log(re)
+    </script>
+</body>
+
+</html>

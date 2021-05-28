@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text {
+            resize: none;
+            width: 500px;
+            height: 300px;
+            font-size: 40px;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="text"></textarea>
+    <p>还可以输入<span id="num">40</span>字</p>
+    <script>
+        var oNum = document.getElementById('num')
+        var oText = document.getElementById('text')
+        var allNum = 40;
+        oText.oninput = function () {
+            //实时检测字数
+            var num = this.value.length;
+            console.log(num);
+
+            //计算剩余字数
+            var minsNum = allNum - num;
+
+            //把剩余字数设置给span中 
+            oNum.textContent = minsNum;
+
+            //当剩余字数为负数的时候 让输入框和字数变红
+            if (minsNum < 0) {
+                this.style.borderColor = "red";
+                oNum.style.color = "red"
+            } else {
+                this.style.borderColor = "#000";
+                oNum.style.color = "#000"
+            }
+        }
+    </script>
+</body>
+
+</html>

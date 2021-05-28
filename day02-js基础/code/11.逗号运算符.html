@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            逗号运算符：
+                1.一条语句执行多个操作
+                2.一条语句先执行逗号左侧，再执行逗号右侧，最后整条语句返回逗号右侧的值
+
+
+                其他使用：
+                    - 函数的多个参数使用逗号间隔
+                    - 数组的值用逗号间隔
+                    - 对象的每一对key-value使用逗号间隔
+        
+        
+        */
+
+        // 1.一条语句执行多个操作
+        var a = 1,
+            b = 2;
+
+        //2.逗号操作符返回逗号右侧的值
+        var c = (1, 2, 3, 4, 5);
+        console.log(c); //5
+
+
+
+        /* 
+            先执行var i = 0
+            然后执行i<4 判断 如果成立 则执行 打印 
+
+            然后再执行i++
+            然后执行i<4 判断 如果成立 则执行 打印 
+
+            然后再执行i++
+            然后执行i<4 判断 如果成立 则执行 打印 
+        
+        */
+        for (var i = 0; i < 4; i++) {
+            console.log(i);
+        }
+        //第二条语句返回的布尔值 是看j<10的这句话，因为逗号操作符返回右侧的值
+        for (var i = 0, j = 0; i < 4, j < 10; i++, j++) {
+            console.log(i, j);
+        }
+
+
+
+
+
+
+
+
+
+        /* 其他使用：
+            -函数的多个参数使用逗号间隔 
+            -数组的值用逗号间隔 
+            -对象的每一对key - value使用逗号间隔 */
+        console.log(1, 2, 3)
+
+        var arr = ["laowang", "laozhang"];
+
+        var obj = {
+            name: "laowang",
+            sex: "nan",
+            age: 18
+        }
+    </script>
+</body>
+
+</html>

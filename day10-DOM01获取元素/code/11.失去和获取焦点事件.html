@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        placeholder : 占位符
+     -->
+    <input type="text" id="ipt" value="请输入密码">
+    <script>
+        /* 
+            获取焦点：
+                当表单在可输入状态的时候被称作获取焦点
+                获取焦点的事件是 focus 事件
+
+            失去焦点：
+                当表单变成不可输入状态的时候，被称作失去焦点
+                失去焦点事件是 blur 事件
+
+        
+        
+        */
+        var oIpt = document.getElementById('ipt');
+
+        //模拟placeholder
+        oIpt.onfocus = function () {
+            //判断内容是否是'请输入密码' 如果是 则清空
+            if (this.value === '请输入密码') {
+                this.value = '';
+            }
+        }
+
+        oIpt.onblur = function () {
+            //判断内容是否是空 如果是 则把内容改为'请输入密码'
+            if (this.value === '') {
+                this.value = '请输入密码';
+            }
+        }
+    </script>
+</body>
+
+</html>

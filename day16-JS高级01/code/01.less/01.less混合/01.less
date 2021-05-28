@@ -1,0 +1,46 @@
+//无参数混合
+/* .center() {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+} */
+//有参数混合
+/* .center(@w, @h, @c) {
+    width: @w;
+    height: @h;
+    background-color: @c;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+} */
+
+//3.参数默认值
+.center(@w: 100px, @h: 100px, @c: pink) {
+    width: @w;
+    height: @h;
+    background-color: @c;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#outer {
+    .center(700px, 500px, red);
+
+    #inner {
+        .center(300px, 300px, green);
+
+        #con {
+            .center(@h: 200px, @w: 150px);
+        }
+    }
+}

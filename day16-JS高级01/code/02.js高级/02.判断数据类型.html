@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+
+ <body>
+     <script>
+         /* 
+            判断数据类型：
+                typeof:
+                    能够检测的类型：number boolean string undefined function symbol bigint
+
+                ===:
+                    null 和 undefined
+                    因为null和undefined类型都是只有一个值，所以全等判断只要类型相等，则值一定相等
+                
+                obejct.toString():
+                    object的toString方法返回的字符串中拥有当前数据的类型，所以我们可以让其他类型调用object的toString方法进行检测
+
+                    Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+         
+         
+         */
+
+         var a = null;
+         console.log(a === null);
+         var b;
+         console.log(b === undefined);
+
+
+         //object的toString方法返回的字符串中拥有当前类型
+         console.log({}.toString());
+
+         //让其他类型调用object.toString方法
+         //1.要拿到object.toString方法 Object.prototype.toString(所有的方法都在当前构造函数的原型对象上)
+         //  Object.prototype.toString()
+         //2.改变toString的this指向，指向你要检测的类型 call方法就是改变一个函数的this指向
+         var re = Object.prototype.toString.call([]);
+         var re = Object.prototype.toString.call(1);
+         var re = Object.prototype.toString.call(function () {});
+         var re = Object.prototype.toString.call(null);
+         var re = Object.prototype.toString.call(undefined);
+         var re = Object.prototype.toString.call(false);
+         var re = Object.prototype.toString.call("123");
+         var re = Object.prototype.toString.call(new Date());
+         var re = Object.prototype.toString.call(/\s/gi);
+         var re = Object.prototype.toString.call(Symbol());
+         var re = Object.prototype.toString.call(1n);
+         console.log(re);
+
+         //封装检测类型函数
+         function checkType(value) {
+             return Object.prototype.toString.call(value).slice(8, -1).toLowerCase();
+         }
+         var re = checkType({});
+         console.log(re);
+
+
+
+         /*  var o = {};
+          o.toString = function () {
+              //在对象的方法中，肯定是要拿到调用当前方法的对象
+              //this就代表调用当前方法的对象
+              //其实toString中是把this指向的对象变成的字符串
+          }
+          o.toString(); */
+     </script>
+ </body>
+
+ </html>

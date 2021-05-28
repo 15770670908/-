@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 清除系统滚动条 */
+        html,
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* #con {} */
+
+        .bar {
+            width: 40px;
+            height: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            background-color: lavenderblush;
+        }
+
+        .box {
+            width: 40px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 60px;
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div class="bar">
+        <div class="box"></div>
+    </div>
+    <script>
+        var oCon = document.getElementById('con');
+        var oBox = document.querySelector('.box');;
+        var oBar = document.querySelector('.bar');;
+        //给con生成内容
+        for (var i = 0; i < 300; i++) {
+            oCon.innerHTML += i + "<br>"
+        }
+
+
+        oBox.onmousedown = function (e) {
+            e.preventDefault();
+            var mouseToBox = e.offsetY;
+
+            document.onmousemove = function (e) {
+                e.preventDefault();
+                var oBoxLoction = e.clientY - mouseToBox;
+
+                if (oBoxLoction <= 0) {
+                    oBoxLoction = 0;
+                } else if (oBoxLoction >= oBar.clientHeight - oBox.offsetHeight) {
+                    oBoxLoction = oBar.clientHeight - oBox.offsetHeight
+                }
+
+                oBox.style.top = oBoxLoction + "px";
+            }
+
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

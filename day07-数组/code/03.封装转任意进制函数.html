@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            任意进制转换
+        
+        */
+        function to2b(num, p) {
+            //定义一个空数组 用来保存每次计算的余数
+            var arr = [];
+            //声明一个变量，用来保存单次计算的余数
+            var r = null;
+            var str = ""; //用字符串表示最后的值
+            var base = "0123456789abcdefghijklmnopqrstuvwxyz";
+            while (num > 0) {
+                //把num对2取余
+                r = num % p;
+                //把r用arr进行保存
+                arr.push(r);
+                //对得到值取整数
+                num = parseInt(num / p);
+            }
+
+            console.log(arr);
+            while (arr.length > 0) {
+                //得到arr.pop不要直接赋值，而是获取arr.pop的这个值对应的数字或字母
+                //所以可以认为arr.pop()得到的是base的下标
+                str += base[arr.pop()];
+            }
+            console.log(str);
+
+            return str;
+        }
+
+
+
+
+        var re = to2b(10000, 36);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            A instanceof B:
+                判断B的显示原型在不在A的原型链上 如果在，则返回true 否则返回false
+            
+        */
+
+        function Foo() {}
+        var f1 = new Foo();
+        console.log(f1 instanceof Foo); //true
+        console.log(f1 instanceof Object); //true
+
+        //案例2
+        console.log(Object instanceof Function) //true
+        console.log(Object instanceof Object) //true
+        console.log(Function instanceof Object) //true
+        console.log(Function instanceof Function) //true
+        console.log(Object instanceof Foo); //false
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 800px;
+        height: 500px;
+        border: 1px solid #000;
+        margin: 10px auto;
+        position: relative;
+      }
+
+      #con {
+        width: 60px;
+        height: 60px;
+        background-color: hotpink;
+        position: absolute;
+        left: 40px;
+        top: 80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box">
+      <div id="con"></div>
+    </div>
+    <script>
+      var oCon = document.getElementById("con");
+      var oBox = document.getElementById("box");
+
+      // 初始化一个left
+      var l = 40;
+      var t = 80;
+      var a = 5; //每次位置的递增
+      var b = 5; //每次位置的递增
+      setInterval(function () {
+        //初始让l或t每次累加a
+        l += a;
+        t += b;
+        //但是只要到达临界值 就让 a变成负数
+        if (l >= oBox.clientWidth - oCon.offsetWidth || l <= 0) {
+          a *= -1;
+        }
+        if (t >= oBox.clientHeight - oCon.offsetHeight || t <= 0) {
+                b *= -1;
+            }
+        oCon.style.left = l + "px";
+        oCon.style.top = t + "px";
+      }, 10);
+    </script>
+  </body>
+</html>

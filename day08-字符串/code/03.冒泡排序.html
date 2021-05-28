@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [3, 5, 1, 4, 2, 6, 8, 5, 9, 4];
+
+        //因为冒泡排序每次只能找到一个最大值，所以要找很多次，所以要for循环遍历得到次数
+        for (var i = 0; i < arr.length; i++) {
+            //每次开始找最大值
+            for (var j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    //交换两个位置
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+    </style>
+    <!-- 
+        script标签在head标签内引入，在不做处理的情况下，不能操作DOM，因为DOM还没有被解析
+     -->
+    <script>
+        //获取box元素
+        var oBox = document.getElementById("box");
+        //把获取的box打印出来
+        console.log(oBox); //null
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+
+    <!-- 
+        作为js最佳实践来说：script标签需要放置在body关标签的上边
+        type属性默认 text/javascript
+     -->
+    <script type="text/javascript">
+        //获取box元素
+        var oBox = document.getElementById("box");
+        //把获取的box打印出来
+        console.log(oBox);
+    </script>
+</body>
+<!-- 
+    就算script标签书写在body关标签的后边，浏览器解析的时候也会解析到body关标签的上边，所以不建议书写在这个位置
+
+ -->
+<script>
+    //获取box元素
+    var oBox = document.getElementById("box");
+    //把获取的box打印出来
+    console.log(oBox);
+</script>
+
+</html>

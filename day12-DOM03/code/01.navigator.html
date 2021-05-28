@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            navigator:
+                navigator对象存储了与浏览器相关的基本信息,如名称、版本和系统等。
+
+                通过 window.navigator可以引用该对象,并利用它的属性来读取客户端基本信息。
+
+
+                - onLine:判断是否有网络
+
+                - userAgent:客户端识别码（用户代理字符串）
+
+                - platform:操作系统
+        
+        
+        */
+        console.log(navigator);
+        console.log(navigator.onLine);
+        console.log(navigator.userAgent);
+        console.log(navigator.platform);
+
+
+
+
+
+        //不同浏览器兼容方法1：浏览器检测法，根据浏览器的结果 执行对应操作
+        /* var ua = navigator.userAgent.toLowerCase();
+        var info = {
+            ie: /msie/.test(ua) && !/opera/.test(ua),
+            op: /opera/.test(ua),
+            sa: /version.*safari/.test(ua),
+            ch: /chrome/.test(ua),
+            ff: /gecko/.test(ua) && !/webkit/.test(ua)
+        }
+        info.ie && console.log("ie");
+        info.op && console.log("op");
+        info.sa && console.log("sa");
+        info.ch && console.log("ch");
+        info.ff && console.log("ff"); */
+
+
+        //不同浏览器兼容方法2-特征检测法
+        //IE6 7 8 不识别lastElementChild  只能识别lastChild  获取最后一个子元素节点
+        //谷歌中  lastChild获取的不是最后一个子元素节点 而是最后一个子节点 只能使用lastElementChild
+        if (ELe.lastElementChild) {
+            console.log(ELe.lastElementChild);
+        } else {
+            console.log(Ele.lastChild);
+        }
+
+
+        //操作系统检测
+        var isWin = (navigator.userAgent.indexOf("Win") != -1);
+        // 如果是Windows系统，则返回true
+        var isMac = (navigator.userAgent.indexOf("Mac") != -1);
+        // 如果是Macintosh系统，则返回true 
+        var isUnix = (navigator.userAgent.indexOf("X11") != -1);
+        // 如果是UNIX系统，则返回true
+        var isLinux = (navigator.userAgent.indexOf("Linux") != -1);
+        // 如果是Linux系统， xc则返回true
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+"匿名函数": {
+    "scope": "javascript,typescript",
+    "prefix": "fn",
+    "body": [
+        "function(){",
+        "	$1",
+        "}"
+    ],
+    "description": "Log output to console"
+},
+
+
+"for": {
+    "scope": "javascript,typescript",
+    "prefix": "fori",
+    "body": [
+        "for (var i = 0; i < $1; i++) {",
+        "	",
+        "}"
+    ],
+    "description": "这个是我自己配置的for循环"
+},
+"获取id": {
+    "scope": "javascript,typescript",
+    "prefix": "did",
+    "body": [
+        "document.getElementById('$1')",
+    ],
+    "description": "这个是我自己配置获取id"
+}
+
+

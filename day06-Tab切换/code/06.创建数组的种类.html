@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //普通数组
+        var arr = ["a", "b", "c", "d"];
+        console.log(arr[0]) //可以通过下标的方式获取数组的值
+        console.log(arr[1])
+        console.log(arr[1 + 1]) //中括号操作符中 是可以进行运算的
+        console.log(arr[10]) //undefined 其实就是获取对象的没有的属性 返回undefined
+
+
+        //多维数组
+        var arr1 = [1, [2],
+            [3, 4]
+        ]; //二维
+        var arr2 = [1, [2, 3, [4, 5, [6], 7], 8], 9]
+        console.log(arr1);
+        console.log(arr2);
+        //读取多维数组的值
+        console.log(arr1[2][0])
+        console.log(arr2[1][2][0])
+
+
+        //空位数组
+        //数组内部如果以逗号为结尾，则忽略，不会当作一个值
+        var arr3 = [1, 2, , 4, 5, ];
+        console.log(arr3)
+        //空位数组空位的值是undefined
+        console.log(arr3[2])
+
+
+        //伪类数组 （伪数组  类数组） 
+        //它不是数组，只不过是像数组
+        //伪类数组其实是一个对象，但是符合两个特征 1:key是从0开始自然递增  2.拥有length属性表示长度
+        var likeArr = {
+            0: "a",
+            1: "b",
+            2: "c",
+            3: "d",
+            length: 4
+        }
+        console.log(likeArr)
+        //伪类数组的获取和数组类似
+        console.log(likeArr[0])
+    </script>
+</body>
+
+</html>

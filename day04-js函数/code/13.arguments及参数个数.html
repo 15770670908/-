@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            arguments:
+                - 在函数内部使用，是一个伪数组，包含了所有传入的实参
+            
+            获取参数的个数：
+                - 获取实参的个数：在函数中直接获取arguments.length
+                - 获取形参的个数：函数名的length即可获取
+        
+        
+        */
+        function fn1(a, b, c, d) {
+            console.log(fn1.length)
+            console.log(arguments);
+            // console.log(a, b, c, d)
+        }
+
+        fn1(1, 2, 3, 4, 5, 6, 7, 8);
+        console.log(fn1.length)
+
+
+
+
+        //封装一个函数，计算所有传入参数的和
+        function sum() {
+            /* console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log(arguments[3]);
+            console.log(arguments[4]); */
+
+            //遍历arguments 拿到所有实参的值进行累加
+            //arguments有一个length属性 是当前实参的长度
+            var num = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                num += arguments[i]
+            }
+            console.log(num)
+        }
+        sum(1, 2, 3, 4, 5);
+        sum(1, 2, 3);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+            background-color: skyblue;
+        }
+
+        .box1 {
+            height: 100px;
+            margin: 100px 0;
+            background-color: hotpink;
+        }
+
+        .box2 {
+            height: 100px;
+            margin: 100px 0;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <script>
+        /* 
+            mousedown:鼠标按下事件
+            mouseup:鼠标抬起事件
+            mousemove:鼠标移动事件
+            mouseover:鼠标移入事件(会触发冒泡)
+            mouseout:鼠标移出事件(会触发冒泡)
+            mouseenter:鼠标移入事件
+            mouseleave:鼠标移出事件
+        
+        
+        */
+
+        var oOuter = document.getElementById('outer');
+
+        oOuter.onmousedown = function () {
+            console.log("down")
+            //down的时候把颜色改变
+            this.style.backgroundColor = "yellowgreen"
+        }
+
+        oOuter.onmouseup = function () {
+            console.log("up")
+            this.style.backgroundColor = "skyblue"
+        }
+
+
+
+
+        //计算两次触发事件的间隔
+        //初始化一个上一次的时间
+        /* var lastTime = 0;
+        oOuter.onmousemove = function () {
+            var nowTime = Date.now();
+            //计算时间差值
+            var minsTime = nowTime - lastTime;
+            console.log(minsTime)
+            //当计算好时间差之后，应该把当次的事件变为上一次的时间，方便下一次计算
+            lastTime = nowTime;
+            console.log("move");
+        } */
+
+
+        /* oOuter.onmouseover = function () {
+            console.log("鼠标移入")
+        }
+        oOuter.onmouseout = function () {
+            console.log("鼠标移出")
+        } */
+
+        oOuter.onmouseenter = function () {
+            console.log("鼠标移入")
+        }
+        oOuter.onmouseleave = function () {
+            console.log("鼠标移出")
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button id="btn">点击</button>
+    <ul class="box">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <script>
+      var oBtn = document.getElementById("btn");
+      var oBox = document.querySelector(".box");
+      var oLis = document.querySelectorAll(".box li");
+      oBtn.onclick = function () {
+        /* 
+                替换节点
+                    - A.replaceChild(new,old)
+                    - A是父元素 把new替换old
+
+            */
+        //旧元素替换
+        // oBox.replaceChild(oLis[3], oLis[1]);
+        //新元素替换
+        var newLi = document.createElement("li");
+        newLi.textContent = "newLi";
+        oBox.replaceChild(newLi, oLis[1]);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            for循环：
+                for(语句1;判断式2;语句3){
+                    代码块
+                }
+                - 首先执行语句1,
+                - 再执行判断式2，观察判断式2的返回值，如果是false，则退出循环
+                - 如果判断式2的返回值是true，则执行代码块
+                - 执行完代码块执行语句3，然后再去执行判断式2
+        */
+
+        //打印出10句 hello world
+        for (var i = 0; i < 10; i++) {
+            console.log("hello world");
+        }
+
+        // 定义一个变量a = 5, 让a执行5次， 每次a加3。 然后弹出a最终的值
+        var a = 5;
+        for (var i = 0; i < 5; i++) {
+            a += 3;
+        }
+        console.log(a);
+
+
+        // 求1到9的和
+        /* var count = 0;
+        for (var i = 0; i < 10; i++) {
+            count += i;
+        }
+        console.log(count); */
+
+        // 求1到100的和
+        /* var count = 0;
+        for (var i = 0; i <= 100; i++) {
+            count += i;
+        }
+        console.log(count); */
+
+        // 求1 - 99 中的单数的和
+        /* var count = 0;
+        for (var i = 0; i < 100; i++) {
+            //判断是单数 就累加
+            if (i % 2 === 1) {
+                count += i;
+            }
+        }
+        console.log(count); */
+
+        /* var count = 0;
+        for (var i = 1; i < 100; i += 2) {
+            count += i;
+        }
+        console.log(count); */
+
+        // 求1 - 99 中是3的倍数的数字和
+        /* var count = 0;
+        for (var i = 0; i < 100; i++) {
+            //判断是单数 就累加
+            if (i % 3 === 0) {
+                count += i;
+            }
+        }
+        console.log(count); */
+
+
+        // 定义一个v， 当v等于0时， v进行3次自加1。 否则v进行4次自加2
+        /* var v = 0;
+        if (v === 0) {
+            for (var i = 0; i < 3; i++) {
+                v++;
+            }
+        } else {
+            for (var i = 0; i < 4; i++) {
+                v += 2;
+            }
+        } */
+
+        // 定义v= 3; 对变量i由0到3进行遍历； 当i 等于2时， v自加2； 否则v自加3
+        /* var v = 3;
+        for (var i = 0; i < 4; i++) {
+            if (i === 2) {
+                v += 2;
+            } else {
+                v += 3;
+            }
+        } */
+    </script>
+</body>
+
+</html>

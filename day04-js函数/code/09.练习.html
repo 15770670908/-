@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+         * 公司给员工买保险（用户通过此程序查询自己是否符合条件）：
+         * 只要结婚的都买
+         * 没有结婚的男人 25岁以下不买
+         * 没有结婚的姑娘 22岁以下不买
+         */
+
+        var isMarry = prompt("是否结婚（结婚扣1 未婚扣0）");
+
+        var age = prompt("年龄")
+
+        var sex = prompt("你是男女？(男的扣1 女的扣0)")
+
+        if (isMarry === "1") {
+            alert("可以买")
+        } else if (sex === "1" && age >= 25) {
+            alert("可以买")
+        } else if (sex === "0" && age >= 22) {
+            alert("可以买")
+        } else {
+            alert("你没资格")
+        }
+    </script>
+</body>
+
+</html>

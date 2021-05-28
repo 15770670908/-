@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .inner {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+            /* position: relative; */
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            border: 2px solid #000;
+            margin: 50px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        /* 
+            offsetLeft:
+                - 获取元素的边框外侧 到 最近定位父级的边框内侧的 距离
+                - 如果一直没有定位父级，则直接获取元素到文档边缘
+        
+        */
+        var oBox = document.querySelector('.box');
+
+        console.log(oBox.offsetLeft);
+    </script>
+</body>
+
+</html>

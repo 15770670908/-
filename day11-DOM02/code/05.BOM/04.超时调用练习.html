@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer {
+            width: 400px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .outer h2 {
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            background-color: palegoldenrod;
+        }
+
+        .outer .con {
+            position: absolute;
+            left: 0;
+            top: 40px;
+            width: 400px;
+            height: 300px;
+            background-color: yellowgreen;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <h2>标题</h2>
+        <div class="con"></div>
+    </div>
+    <script>
+        var oOuter = document.querySelector('.outer');
+        var oH2 = document.querySelector('.outer h2');
+        var oCon = document.querySelector('.con');
+        var timer = null;
+        //给outer绑定移入事件
+        oOuter.onmouseenter = function () {
+            //每次移入的时候要把移除给的定时器给清掉，否则可能会在移入后触发
+            clearTimeout(timer)
+            oCon.style.display = "block";
+        }
+
+        oOuter.onmouseleave = function () {
+            //延迟500毫秒
+            timer = setTimeout(function () {
+                oCon.style.display = "none";
+            }, 500)
+
+        }
+    </script>
+</body>
+
+</html>

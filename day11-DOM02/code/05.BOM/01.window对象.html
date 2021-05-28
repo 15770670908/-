@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            window对象：    
+                window对象有双重的身份  
+                - BOM的核心对象，代表浏览器窗口的一个实例
+                - Global并没有在浏览器中实现，window扮演Global的角色（全局的方法和变量都是window对象的属性和方法）
+
+            window对象包含：
+                - navigator:客户端信息
+                - history：历史记录
+                - location：url地址信息
+                - document：文档
+        */
+
+
+        var a = 1;
+
+        function aa() {
+            alert(1);
+            window.b = "hello";
+            var b = 2;
+        }
+        aa();
+        console.log(window);
+        console.log(window.a);
+        console.log(window.aa);
+        console.log(b);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">变色</button>
+    <div id="box"></div>
+    <script>
+        /* 
+            需求：  
+                默认box背景红色，点击按钮让元素的背景颜色在绿色和红色之间切换
+
+            过程：
+                1.获取元素
+                2.给btn绑定点击事件
+                3.因为是两种状态的切换，所以可以用一个变量保存布尔值 来代表两种状态
+        */
+
+        // 获取元素
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box');
+
+        //初始化一个开关 保存状态
+        var flag = true; //因为初始是红色 初始是true  所以默认true代表当前红色
+
+        // 给btn绑定点击事件
+        oBtn.onclick = function () {
+            //判断flag 如果flag是true 则代表当前红色，需要点击改变为绿色
+            if (flag) {
+                //让box的背景颜色改变为绿色
+                //改变元素的样式  元素.style.样式属性 = 样式值
+                oBox.style.backgroundColor = "lightgreen";
+
+                //当box的样式改变之后，我们要把开关的状态给切换了
+                flag = false;
+
+            } else {
+                oBox.style.backgroundColor = "red";
+                flag = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

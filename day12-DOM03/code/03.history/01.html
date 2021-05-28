@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <h1>011111</h1>
+    <a href="02.html">02</a>
+    <a href="03.html">03</a>
+    <script>
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            //后退一步 back方法
+            // history.back();
+
+            //前进一步 forward方法
+            // history.forward()
+
+            //任意 go()  go方法中可以书写数字代表要前进或后退的层数  正代表前进 负代表后退
+            // history.go(2);
+            history.go(-2);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="outer">
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+        <li class="item"></li>
+    </ul>
+    <script>
+        /* 
+            JavaScript字符串(String) 就是由零个或多个Unicode字符组成的字符序列。 零个字符表示空字符串。
+
+            1.单引号 和 双引号表示字符串
+            2.单引号内嵌套双引号  双引号内嵌套单引号
+            3.转义符操作
+            4.字符串不允许书写的时候换行
+            5.显示换行
+
+            字符串的长度：length属性
+        */
+
+        //单引号 和 双引号表示字符串
+        var str1 = "hello world";
+        var str2 = '#$ddsdj';
+        console.log(str1, str2)
+
+        //嵌套
+        var str3 = "海静说：'我真棒'";
+        console.log(str3)
+
+        //转义符操作
+        var str4 = "我要书写一个双引号\"\"";
+        var str5 = "我要书写一个杠\\";
+        var str6 = "\海\静\说：'我真棒'"; //如果转义不成功 则忽略转义符
+        console.log(str4);
+        console.log(str5);
+        console.log(str6);
+
+        //书写换行
+        var str7 = ' <ul id="outer">\
+                        <li class="item"></li>\
+                        <li class="item"></li>\
+                        <li class="item"></li>\
+                        <li class="item"></li>\
+                        <li class="item"></li>\
+                    </ul>';
+
+        console.log(str7);
+
+        //显示换行
+        var str8 = "今天\n天气真好";
+        console.log(str8)
+
+
+        //字符串长度
+        var str9 = "abcd1234";
+        console.log(str9.length); //8
+
+        //字符串每一个值都对应了一个下标，可以通过下标获取字符串的某一个值
+        // console.log(str9.3)//点后跟数字是非法语法，所以要使用中括号
+        console.log(str9[3])
+    </script>
+</body>
+
+</html>

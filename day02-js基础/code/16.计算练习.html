@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <button id="btn">计算</button>
+    <script>
+        /* 
+            请输入半径，请计算你家面积和周长
+        */
+
+        var oBtn = document.getElementById('btn');
+        var oIpt = document.getElementById('ipt');
+
+        oBtn.onclick = function () {
+            //获取输入的半径
+            var r = oIpt.value;
+
+            console.log(parseInt(3.14 * r * r));
+            console.log(parseInt(2 * 3.14 * r));
+        }
+    </script>
+</body>
+
+</html>

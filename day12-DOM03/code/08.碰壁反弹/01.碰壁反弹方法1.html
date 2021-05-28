@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        #con {
+            width: 60px;
+            height: 60px;
+            background-color: hotpink;
+            position: absolute;
+            left: 40px;
+            top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+    <script>
+        var oCon = document.getElementById('con');
+        var oBox = document.getElementById('box');
+
+        // 初始化一个left
+        var l = 40;
+        var t = 80;
+        //初始化一个开关
+        var flagX = true;
+        var flagY = true;
+        setInterval(function () {
+
+            if (flagX) {
+                l += 4;
+                //判断临界值 外层元素不带边框的总宽度-内层元素带边框的总宽度
+                if (l >= oBox.clientWidth - oCon.offsetWidth) {
+                    //当到达临界值的时候，限制当前的值为临界值
+                    l = oBox.clientWidth - oCon.offsetWidth;
+                    flagX = !flagX;
+                }
+            } else {
+                l -= 4;
+                if (l <= 0) {
+                    l = 0;
+                    flagX = !flagX;
+                }
+            }
+
+
+            if (flagY) {
+                t += 4;
+                //判断临界值 外层元素不带边框的总宽度-内层元素带边框的总宽度
+                if (t >= oBox.clientHeight - oCon.offsetHeight) {
+                    //当到达临界值的时候，限制当前的值为临界值
+                    t = oBox.clientHeight - oCon.offsetHeight;
+                    flagY = !flagY;
+                }
+            } else {
+                t -= 4;
+                if (t <= 0) {
+                    t = 0;
+                    flagY = !flagY;
+                }
+            }
+
+            oCon.style.left = l + "px";
+            oCon.style.top = t + "px";
+        }, 10)
+    </script>
+</body>
+
+</html>

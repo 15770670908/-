@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oBox = document.getElementById('box');
+        var oLis = document.querySelectorAll('#box li');
+
+        //children:获取某个元素所有的子元素节点
+        console.log(oBox.children);
+
+        //parentNode：获取某个元素的父节点
+        console.log(oLis[2].parentNode);
+
+        //firstElementChild：获取第一个子元素节点
+        console.log(oBox.firstElementChild);
+
+        //lastElementChild:获取最后一个子元素节点
+        console.log(oBox.lastElementChild);
+
+        //nextElementSibling:获取某个元素的下一个兄弟节点
+        console.log(oLis[1].nextElementSibling);
+
+        //previousElementSibling:获取某个元素的上一个兄弟节点
+        console.log(oLis[1].previousElementSibling);   
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 300px;
+            background-color: lightblue;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <p id="reload">刷新</p>
+    </div>
+    <script>
+        var oBox = document.getElementById('box');
+        var oReload = document.getElementById('reload')
+        var l = 0,
+            t = 0;
+        document.oncontextmenu = function (e) {
+            //获取窗口的宽高
+            var winWH = {
+                width: document.documentElement.clientWidth,
+                height: document.documentElement.clientHeight,
+            }
+            //先显示元素
+            oBox.style.display = "block";
+
+            //横向定位
+            l = e.clientX;
+            t = e.clientY;
+            //判断临界值
+            if (l >= winWH.width - oBox.offsetWidth) {
+                //如果到达临界值，则让元素向左偏移自身的距离
+                l -= oBox.offsetWidth;
+            }
+            //判断临界值
+            if (t >= winWH.height - oBox.offsetHeight) {
+                //如果到达临界值，则让元素向左偏移自身的距离
+                t -= oBox.offsetHeight;
+            }
+
+            //赋值
+            oBox.style.left = l + "px";
+            oBox.style.top = t + "px";
+
+
+            return false;
+        }
+
+
+        oReload.onclick = function () {
+            location.reload();
+        }
+    </script>
+</body>
+
+</html>

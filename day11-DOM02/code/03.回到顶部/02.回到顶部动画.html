@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .box {
+            width: 100px;
+            height: 50px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: hotpink;
+            font-size: 20px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">回到顶部</div>
+    <script>
+        var oBox = document.querySelector('.box');
+        //绑定系统滚动条事件，当滚动条只要移动就会触发 触发以后判断
+        window.onscroll = function () {
+            //实时获取滚动条的距离
+            var nowScroll = window.pageYOffset;
+
+            //实时判断
+            if (nowScroll > 500) {
+                oBox.style.display = "block";
+            } else {
+                oBox.style.display = "none";
+            }
+        }
+
+
+        //回到顶部逻辑
+        //当点击回到顶部按钮，滚动条直接回到顶部
+        var timer = null;
+        oBox.onclick = function () {
+            //当点击的时候 获取当前的滚动条的位置
+            var nowScroll = window.pageYOffset;
+
+            //让nowScroll 以动画的方式递减，每次递减都设置给滚动条
+            timer = setInterval(function () {
+                nowScroll -= 100;
+                //临界值当滚动条变成0的时候 清除定时器
+                if (nowScroll <= 0) {
+                    //临界值的时候，先确定当前的值为0
+                    nowScroll = 0;
+                    //清掉定时器
+                    clearInterval(timer);
+                }
+                //设置
+                window.scrollTo(0, nowScroll);
+            }, 10)
+
+        }
+    </script>
+</body>
+
+</html>

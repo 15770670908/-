@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            加法运算符：
+                只要两个操作数出现有一个字符串，则都转为字符串方式拼接
+                只要出现对象，则转为字符串拼接
+        */
+        console.log(1 + 1) //2
+        console.log(1 + "1") //'11'
+        console.log("1" + "1") //'11'
+        console.log(null + "1") //'null1'
+        console.log(null + 1) //1
+        console.log(null + undefined) //NaN
+        console.log("1" + undefined) //'1undefined'
+        console.log([] + undefined) //'undefined'
+        console.log([] + {}) //'[object Object]'
+        console.log([] + null) //'null'
+        console.log({} + 1) //'[object Object]1'
+
+
+        //字符串拼接
+        var age = 14;
+        var name = "laowang";
+        var hobby = "html5";
+
+        var str = "我是" + name + "，我今年" + age + "岁，我喜欢" + hobby;
+        console.log(str);
+
+
+        var str = 1 + 2 + "3" + 4; //'334'
+        var str = "1" + 2 + 3 + "4"; //'1234'
+        var str = "1" + 2 + 3 + 4; //'1234'
+        var str = "1" + 2 + "3" + 4; //'1234'
+
+
+
+        var num5 = 1;
+        var num6 = 2;
+        alert("num5 + num6 = " + num5 + num6); //'num5+num6=12'
+    </script>
+</body>
+
+</html>

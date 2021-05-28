@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            删除数组值的方法总结：
+                - shift和pop:删除数组的第一个和最后一个的值
+                - delete删除:只能删除对应的value值，但是下标依然存在，数组的长度不变
+                - length删除：当设置length的值小于数组的长度的时候，则把后边的值全部删除
+                - splice删除：
+                    - 参数1：删除开始的下标的位置
+                    - 参数2：从删除位置开始数，删除元素的长度
+                    - 返回：删除的值组成的数组
+
+        */
+        var arr = ["a", "b", "c", "d", "e", "f", "g"];
+
+        //delete删除
+        /* var re1 = delete arr[1];
+        console.log(re1); //true
+        console.log(arr); */
+
+
+        //length删除
+        /* arr.length = 0;
+        console.log(arr); */
+
+        //splice删除
+        var re = arr.splice(2, 3)
+        console.log(arr);
+        console.log(re);
+
+
+
+
+
+        //数组的删除练习
+        var Person = [{
+                name: "xiaowang1",
+                age: 19,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang2",
+                age: 21,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang3",
+                age: 14,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang4",
+                age: 33,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang5",
+                age: 11,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang6",
+                age: 49,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang7",
+                age: 29,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang8",
+                age: 6,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang9",
+                age: 19,
+                sex: "nan"
+            },
+            {
+                name: "xiaowang10",
+                age: 21,
+                sex: "nan"
+            },
+        ];
+
+        for (var i = 0; i < Person.length; i++) {
+            if (Person[i].age < 50) {
+                var re = Person.splice(i, 1)
+                console.log(re);
+                //一旦删除元素了，数组的下标就会向前提一位
+                // i = -1;//直接重置i 但是值为-1  因为下一步for就会执行i++
+                i--;
+            }
+        }
+        console.log(Person)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            添加元素：
+                - push和unshift:向数组的末尾和头部添加一个或多个元素
+                - 使用下标可以直接添加数组新值
+                - concat
+                    - 合并数组 把一个或多个值合并到数组的末尾
+                    - 可以把一个数组合并到另一个数组中(把要合并的数组展开,只能展开一层)
+                    - 不会改变原数组，而是返回一个新的合并后的数组
+
+                - splice方法
+                    - 参数1：开始删除的下标
+                    - 参数2：删除的长度
+                    - 后边所有的参数：在删除位置添加的元素
+
+        
+        */
+
+        var arr = ["a", "b", "c", "d", "e"];
+
+        //1.添加元素-下标方法
+        arr[arr.length] = "f";
+        // arr[100] = "g";
+        console.log(arr);
+
+
+        //concat
+        // var re = arr.concat(1, 2, 3);
+        var re = arr.concat([1, 2, 3]);
+        console.log(arr);
+        console.log(re);
+
+
+        //splice在数组的任意位置添加一个值
+        var arr2 = ["a", "b", "c", "d", "e"];
+        arr2.splice(2, 0, 1, 2, 3)
+        console.log(arr2);
+    </script>
+</body>
+
+</html>

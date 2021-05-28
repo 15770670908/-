@@ -1,0 +1,44 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+#outer {
+  width: 1200px;
+  margin: 0 auto;
+}
+#outer .list {
+  width: 500px;
+  border: 1px solid #000;
+}
+#outer .list > li {
+  line-height: 40px;
+  font-size: 20px;
+  color: #ccc;
+}
+#outer .list > li:nth-child(1) {
+  color: pink;
+}
+#outer .list > li:nth-child(1):hover {
+  background-color: green;
+}
+#outer .list > li:hover {
+  color: green;
+}
+#outer .list > li span {
+  color: #bbb;
+  font-size: 30px;
+}
+#outer .header-outer {
+  width: 100%;
+  background-color: #ccc;
+}
+#outer .header {
+  width: 1200px;
+  background-color: red;
+  margin: 0 auto;
+}
+#outer .header:hover {
+  background-color: yellow;
+}

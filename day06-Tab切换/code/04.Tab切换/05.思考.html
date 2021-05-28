@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var oBox = document.getElementById('box');
+        var oLis = oBox.getElementsByTagName("li");
+        /* 
+            代码的同步和异步：
+                代码分为同步代码和异步代码
+                - 目前来说 事件函数的执行是异步的
+                - 其他都是同步的（切记：绑定事件是同步的）
+                - 异步代码是等同步代码全部执行完成以后才会执行
+        
+        
+        */
+        //给每一个li绑定点击事件
+        for (var i = 0; i < oLis.length; i++) {
+            oLis[i].onclick = function () {
+                // console.log(i); //3 3 3
+
+                //下边代码不能运行 因为点击的时候 for循环已经结束了，所以i是3
+                // oLis[i].style.background = "red";
+            }
+        }
+    </script>
+</body>
+
+</html>

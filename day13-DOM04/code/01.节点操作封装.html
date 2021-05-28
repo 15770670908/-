@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul class="box">
+        <li>1 <a href="###">XX</a></li>
+        <li>2 <a href="###">XX</a></li>
+        <li>3 <a href="###">XX</a></li>
+        <li>4 <a href="###">XX</a></li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        var oBox = document.querySelector('.box');
+        var oLis = document.querySelectorAll('.box li');
+        var oDele = document.querySelectorAll('.box li a');
+
+        //封装一个在元素内部的最上边插入beforeChild
+        function beforeChild(parent, child) {
+            //获取parent的第一个子节点
+            var oFirstChild = parent.firstElementChild;
+            if (oFirstChild) {
+                //如果第一个子节点存在，则把新元素插入到第一个子节点的前边
+                parent.insertBefore(child, oFirstChild);
+            } else {
+                //如果不存在 则说明内部没有元素，则直接插入即可
+                parent.appendChild(child)
+            }
+        }
+
+        // beforeChild(oOuter, oNewLi)
+
+
+        //封装一个在兄弟元素后边插入一个元素的方法 insertAfter
+        function insertAfter(newEle, oldEle) {
+            //获取oldEle的下一个兄弟元素
+            var oNextEle = oldEle.nextElementSibling;
+            //判断下一个子节点是否存在
+            if (oNextEle) {
+                oNextEle.parentNode.insertBefore(newEle, oNextEle)
+            } else {
+                oldEle.parentNode.appendChild(newEle)
+            }
+        }
+
+        insertAfter(newLi, oldLi)
+    </script>
+</body>
+
+</html>

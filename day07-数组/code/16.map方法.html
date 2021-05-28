@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            映射数组：
+                - 参数和forEach类似
+                - 遍历数组，并返回一个和原数组长度一样的数组
+                - 原数组每次会进入回调函数执行，当前回调函数的返回值就是映射数组对应位置的值
+
+            对比forEach:
+                - 都是遍历数组，map会返回一个和原数组一样长度的数组，forEach没有返回值
+        */
+
+        /* var arr = [11, 21, 31, 41, 51, 61];
+
+        //把每一个年龄加1
+        var re = arr.map(function (item, index) {
+            return item + 1;
+        });
+        console.log(re); */
+
+
+        /* var persons = [
+            {name:"lily1",sex:"女",age:18},
+            {name:"lily2",sex:"男",age:19},
+            {name:"lily3",sex:"女",age:11},
+            {name:"lily4",sex:"男",age:28},
+            {name:"lily5",sex:"女",age:22},
+        ];
+        //如果男生则年龄减1 如果女生则年龄+1
+        var re = persons.map(function(item,index){
+            if(item.sex ==="男"){
+                item.age -= 1;
+            }else{
+                item.age += 1;
+            }
+            return item;
+        })
+        console.log(re); */
+    </script>
+</body>
+
+</html>

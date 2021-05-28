@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(./01.css);
+    </style>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    //a标签的其他功能
+    <a href="" download="../images/01.png">点击下载图片</a>
+    <a href="tel:15701665563">给李沛华打电话</a>
+    <a href="sms:15701665563">给李沛华发短信</a>
+    <a href="mailto:lipeihua@atguigu.com">给李沛华发邮件</a>
+    <script>
+        //常见浏览器及内核及前缀
+        /* IE :Trident内核    -ms-
+        火狐（Firefox） Gecko内核 -moz-
+        谷歌（Chrome） Blink内核  -webkit-
+        Safari Webkit内核  -webkit-
+        Opera  Webkit内核  -webkit- */
+
+
+
+        /* 
+            行标签和块标签：
+                块：
+                    - 独占一行 换行显示
+                    - 可以设置宽高
+                    - 可以嵌套块标签和行标签（p h dt除外）
+
+                行:
+                    - 行内显示
+                    - 不可以设置宽高
+                    - 只能嵌套行标签（a不能嵌套a）
+            
+        
+        
+        */
+
+
+        /* 
+            重绘重排:
+                重排（回流）：当render tree中的一部分或者是全部，因为元素的尺寸、布局、隐藏等等改变引起页面的重新渲染，这个过程称作为重排
+
+                重绘：当render tree（渲染树）中更新的属性只会影响元素的外观、风格，不会影响元素的布局的时候，浏览器需要重新绘制当前元素的样式，被称作为重绘。
+
+                重绘不会引起重排，但重排一定会引起重绘
+
+         
+        
+        */
+
+        /* 
+            link和@import
+                - link是属于html标签引入css的
+                - @import是css中提供引入css外部文件的(在所有内容全部加载完成才去下载)
+        
+        
+        */
+
+
+        /* 
+            为什么margin垂直方向auto不能居中元素：
+                因为元素在垂直方向没有满屏属性
+        
+        
+        */
+    </script>
+
+
+</body>
+
+</html>

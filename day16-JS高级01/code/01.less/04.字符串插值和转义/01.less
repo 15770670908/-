@@ -1,0 +1,14 @@
+@url: "http://lipeihua.vip/";
+@p: "30";
+
+#outer {
+    /* 
+        字符串插值是在字符串中插入变量  直接使用@{变量名即可}
+        ~是转义字符，把字符串转义成非字符串格式
+    
+    */
+    width:~"@{p}px";
+    height: 100px;
+    background: url("@{url}01.png");
+
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            其他类型转string
+                - number转string
+                - 两种方法：
+                    - 全局的方法String()
+                    - 除了null和undefined，其他类型都有toString()方法
+
+                - number转string
+                    直接添加引号变成字符串
+                - boolean转string
+                    直接添加引号变成字符串
+                - null和undefined 转string
+                    直接添加引号变成字符串
+
+                - 对象 转string
+                    - 数组：直接去掉中括号，添加引号 空数组转为空字符串
+                    - 对象：所有对象转为 [object Object]
+                    - 函数：直接加引号     
+        
+        */
+
+        // number转string
+        console.log(String(1))
+        console.log(String(-1))
+        console.log(String(-1.1))
+        console.log(String(0))
+        console.log(String(Infinity))
+        console.log(String(NaN))
+
+        // boolean转string
+        console.log(String(true))
+        console.log(String(false))
+
+        // null和undefined 转string
+        console.log(String(null))
+        console.log(String(undefined))
+
+        //对象 转string
+        console.log(String([])) //''
+        console.log(String([1])) //'1'
+        console.log(String([1, 2])) //'1,2'
+        console.log(String({})) //[object Object]
+        console.log(String(function () {})) //'function () {}'
+
+
+        console.log("_____________________________________________________");
+        // number转string
+        console.log((1).toString())
+        console.log((Infinity).toString())
+        console.log((NaN).toString())
+
+        // boolean转string
+        console.log(true.toString())
+        console.log(false.toString())
+
+
+        //对象 转string
+        console.log([1, 2].toString()) //'1,2'
+        console.log({}.toString()) //[object Object]
+        console.log((function () {}).toString()) //'function () {}'
+    </script>
+</body>
+
+</html>

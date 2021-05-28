@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <label for="user">账号</label>
+            <input type="text" id="user" autocomplete="off" autofocus>
+        </div>
+        <div>
+            <label>
+                密码：<input type="password" id="pass">
+            </label>
+        </div>
+        <button id="btn">提交</button>
+
+    </div>
+    <script>
+        /* 
+            需求：用户点击提交，前端判断用户名和密码是否正确 用户名：laoli 密码：123456
+
+
+            过程：
+                1. 获取元素
+                2. 给btn绑定点击事件
+                3. 获取账号和密码的值
+                4. 判断账号和密码是否正确 如果正确则提示成功 否则失败
+        
+        */
+        //获取元素
+        var oBtn = document.getElementById('btn');
+        var oUser = document.getElementById('user');
+        var oPass = document.getElementById('pass');
+
+        // 给btn绑定点击事件
+        oBtn.onclick = function () {
+            // 获取账号和密码的值
+            var userValue = oUser.value;
+            var passValue = oPass.value;
+            console.log(userValue, passValue)
+
+            // 判断账号和密码是否正确
+            // 表单的值一定都是字符串类型
+            if (userValue === "laoli") {
+                //继续判断密码
+                if (passValue === "123456") {
+                    //则提示登录成功
+                    alert("登录成功")
+                } else {
+                    alert("密码错误")
+                }
+            } else {
+                //如果用户名报错，则提示用户名错误
+                alert("用户名错误")
+            }
+
+        }
+    </script>
+</body>
+
+</html>

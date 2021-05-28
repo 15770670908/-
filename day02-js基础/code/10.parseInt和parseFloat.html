@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            parseInt方法
+                - 将字符串转数字  取整
+                - 从第一位开始读，直到碰到非数字停止，把前边读的数字提出来
+        
+
+            parseFloat方法
+                - 将字符串转数字 可以取浮点数
+                - 从第一位开始读，直到碰到非数字(可以碰到一次小数点)停止，把前边读的数字提出来
+        */
+        console.log(parseInt("123")) //123
+        console.log(parseInt("123.45")) //123
+        console.log(parseInt("1a23.45")) //1
+        console.log(parseInt("123a.45")) //123
+        console.log(parseInt("a123a.45")) //NaN
+        console.log(parseInt("a1px")) //NaN
+        console.log(parseInt(12.1)) //12
+
+
+        console.log(parseFloat("123")) //123
+        console.log(parseFloat("123.45")) //123.45
+        console.log(parseFloat("1.223.45")) //1.223
+        console.log(parseFloat("123a.45")) //123
+        console.log(parseFloat("a123a.45")) //NaN
+        console.log(parseFloat("a1px")) //NaN
+        console.log(parseFloat(12.1)) //12.1
+
+
+        // parseInt的进制转换功能
+        //把2进制的'111' 转为10进制的数字
+        console.log(parseInt("111", 2)) //7
+        console.log(parseInt("ff", 16)) //255
+        console.log(parseInt("10", 6)) //255
+        console.log(parseInt("z", 36)) //255 
+        console.log(parseInt("z2131jsadk", 36)) //3560325691419272
+        console.log(parseInt("3", 2)) //NaN
+        console.log(parseInt("0", 1)) //NaN 没有1进制
+        console.log(parseInt("12", 0)) //0进制默认为10进制
+    </script>
+</body>
+
+</html>

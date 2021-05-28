@@ -1,0 +1,57 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#outer {
+    width: 1200px;
+    margin: 0 auto;
+
+    .list {
+        width: 500px;
+        border: 1px solid #000;
+
+        &>li {
+            line-height: 40px;
+            font-size: 20px;
+            color: #ccc;
+
+            //&符号代表父级引用
+            &:nth-child(1) {
+                color: pink;
+            }
+
+            &:nth-child(1):hover {
+                background-color: green;
+            }
+
+            &:hover {
+                color: green;
+            }
+
+            span {
+                color: #bbb;
+                font-size: 30px;
+            }
+        }
+
+
+    }
+
+    .header-outer {
+        width: 100%;
+        background-color: #ccc;
+    }
+
+    .header {
+        width: 1200px;
+        background-color: red;
+        margin: 0 auto;
+
+        &:hover {
+            background-color: yellow;
+        }
+    }
+}

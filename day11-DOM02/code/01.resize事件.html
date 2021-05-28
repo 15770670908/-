@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            resize事件：
+                当窗口的大小改变的时候触发
+
+                document.documentElement.clientWidth获取窗口的宽度
+        
+        
+        */
+        window.onresize = function () {
+            // console.log(1);
+
+            if (document.documentElement.clientWidth > 400) {
+                document.body.style.background = "red";
+            } else {
+                document.body.style.background = "yellow";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

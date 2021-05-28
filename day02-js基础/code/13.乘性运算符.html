@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            乘法：
+                所有全部转为number运算
+
+        */
+        console.log(2 * 2) //4
+        console.log(2 * -2) //-4
+        console.log(2 * -2.1) //-4.2
+        console.log("2" * 2) //4
+        console.log("2" * "2") //4
+        console.log("2a" * "2") //NaN
+        console.log("2a" * 2) //NaN
+        console.log(true * "2") //2
+        console.log(true * 1) //1
+        console.log(null * 1) //0
+        console.log(null * undefined) //NaN
+        console.log(2 * undefined) //NaN
+        console.log([] * 2) //0
+        console.log([2] * 2) //4
+        console.log([2, 2] * 2) //NaN
+        console.log({}* 2) //NaN
+
+       
+
+        /* 
+            除法
+            所有全部转为number运算
+        
+        */
+        console.log(4 / 2) //2
+        console.log(4 / -2) //-2
+        console.log("4" / 2) //2
+        console.log("4" / "2") //2
+        console.log("4a" / "2") //NaN
+        console.log("4a" / 2) //NaN
+        console.log(true / "4") //0.25
+        console.log(true / 1) //1
+        console.log(null / 1) //0
+        console.log(null / undefined) //NaN
+        console.log(4 / undefined) //NaN
+        console.log([] / 4) //0
+        console.log([4] / 2) //2
+        console.log([4, 4] / 2) //NaN
+
+        /* 
+            求模:取余 
+                全部转为number运算
+                取余的符号只看被除数  8/3 8是被除数 3是除数
+        
+        */
+
+        console.log(8 % 3) //2
+        console.log(8 % -3) //2
+        console.log(-8 % 3) //-2
+        console.log(-8 % -3) //-2
+    </script>
+</body>
+
+</html>

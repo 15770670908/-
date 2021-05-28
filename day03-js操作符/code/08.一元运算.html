@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            一个操作数的运算：一元运算
+                + a:可以把a转为number类型
+
+            类型转换转number总结：
+                - Number方法
+                - parseInt、parseFloat
+                - 一元运算的 +
+                - 减0  乘1 除1
+        
+        */
+        console.log(+1); //1
+        console.log(+"1"); //1
+        console.log(+null); //0
+        console.log(+undefined); //NaN
+        console.log(+true); //1
+        console.log(+NaN); //NaN
+        console.log(+[]); //0
+        console.log(+{}); //NaN
+
+
+        console.log(Number("2"))
+        console.log(parseInt("2"))
+        console.log("2" - 0)
+        console.log("2" * 1)
+        console.log("2" / 1)
+        console.log(+"2")
+    </script>
+</body>
+
+</html>

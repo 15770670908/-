@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            单分支：
+                - if(判断式){表达式}
+                - 当判断式成立 则执行表达式
+                - 当表达式只有一条语句的话，可以省略大括号，但是不建议
+        
+        
+        */
+        // 声明变量 a、b，且赋值 a 和 b 都等于5；当 a 等于 b 时，重新对 b 赋值为10，并弹出 b 的新值
+        var a = 5,
+            b = 5;
+        if (a === b) {
+            //把大括号称作为代码块
+            b = 10;
+            alert(b);
+        }
+
+
+        if (a > b)
+            b = 3; //代码块中只有一条语句的时候 可以省略大括号
+
+
+
+        /* 
+            双分支：if（判断式）{代码块1}else{代码块2}  
+                - 当判断式成立，则执行代码块1 
+                - 判断式不成立，则执行代码块2
+        
+        */
+
+        // 【双分支】声明变量 a赋值为100；当 a 大于 50 时，弹出“a真大”，否则弹出“a真小”
+        var a = 100;
+        if (a > 50) {
+            alert("a真大");
+        } else {
+            alert("a真小")
+        }
+        // 【双分支】y值和x值相关。X大于等于3时，y值为2。X小于3时，y值为1
+        var x = 1,
+            y = 2;
+        if (x >= 3) {
+            y = 2;
+        } else {
+            y = 1;
+        }
+        // 【双分支】如果x大于y成立，则x值为y值加1，否则x值为y值减1
+        var x = 1,
+            y = 2;
+        if (x > y) {
+            x = y + 1;
+        } else {
+            x = y - 1;
+        }
+        // 【双分支】如果x大于y或者x小于z成立，则x值为z值，否则x值为y值
+        var x = 1,
+            y = 2,
+            z = 3;
+        if (x > y || x < z) {
+            x = z;
+        } else {
+            x = y;
+        }
+
+
+        /* 
+            多分支：
+                - if (条件表达式) {语句1;} else if (条件表达式) {语句2;} ... else {语句3;} 
+                - 在else的情况下 如果还分情况 则继续if
+
+        */
+        // 【多分支】如果x值为3，y值为2，如果x值大于3，y值为1，如果x值小于3，y值为4
+        var x = 1,
+            y = 2;
+        if (x === 3) {
+            y = 2;
+        } else if (x > 3) {
+            y = 1;
+        } else {
+            y = 4;
+        }
+
+
+        var x = 1,
+            y = 2;
+        if (x === 3) {
+            y = 2;
+        } else {
+            if (x > 3) {
+                y = 1
+            } else {
+                y = 4;
+            }
+        }
+
+        // 【多分支】x值为2，y值为1，如果x值比2小，y值为0，如果x值比10大，y值为10，如果x值小于4且大于3，y值为5，其他情况y为3
+        var x = 2,
+            y = 1;
+        if (x < 2) {
+            y = 0;
+        } else if (x > 10) {
+            y = 10;
+        } else if (x < 4 && x > 3) {
+            y = 5;
+        } else {
+            y = 3;
+        }
+    </script>
+</body>
+
+</html>

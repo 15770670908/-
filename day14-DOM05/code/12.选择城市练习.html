@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 400px;
+        }
+
+        .point {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .city {
+            position: relative;
+        }
+
+        .city h2 {
+            height: 30px;
+            line-height: 30px;
+            background-color: lightpink;
+        }
+
+        .city .list {
+            width: 400px;
+            background-color: lightskyblue;
+            position: absolute;
+            left: 0;
+            top: 30px;
+            display: none;
+            flex-wrap: wrap;
+        }
+
+        .list li {
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <h1 class="point">北京</h1>
+        <div class="city">
+            <h2 id="choose">请选择城市</h2>
+            <ul class="list" id="list">
+                <li>北京</li>
+                <li>上海</li>
+                <li>天津</li>
+                <li>长沙</li>
+                <li>深圳</li>
+                <li>焦作</li>
+                <li>洛阳</li>
+                <li>漯河</li>
+                <li>信阳</li>
+                <li>东莞</li>
+                <li>淡水</li>
+                <li>潮汕</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var oList = document.querySelector('.list');
+        var oPoint = document.querySelector('.point');
+        document.onclick = function (e) {
+            if (e.target.id === "choose") {
+                oList.style.display = "flex";
+                return;
+            }
+
+            if (e.target.nodeName === "LI" && e.target.parentNode.id === "list") {
+                oPoint.textContent = e.target.textContent;
+                oList.style.display = "none";
+                return;
+            }
+
+            oList.style.display = "none";
+
+
+
+           
+        }
+    </script>
+</body>
+
+</html>

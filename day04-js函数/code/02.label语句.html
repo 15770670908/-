@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            - break和continue默认退出当前最近所在的循环
+            - label声明是给for循环起一个名字，当使用break和continue的时候，可以选择退出所在的哪一个循环
+        
+        
+        */
+        o:
+            for (var i = 0; i < 5; i++) {
+                if (i === 3) {
+                    continue o;
+                }
+                console.log(i);
+            }
+
+
+        outer:
+            for (var i = 0; i < 5; i++) {
+                inner: for (var j = 0; j < 5; j++) {
+                    if (j > 2) {
+                        // break;//默认退出最近的for
+                        break outer;
+                    }
+                    console.log(i, j)
+                }
+            }
+    </script>
+</body>
+
+</html>

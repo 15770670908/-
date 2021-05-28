@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Function.prototype.myApply = function (context) {
+            //判断context的类型 并改变context类型
+            if (context === null || context === undefined) {
+                context = window;
+            }
+            if (typeof context !== 'object' && typeof context !== 'function') {
+                context = Object(context);
+            }
+
+            //获取用户给函数fn的传参
+            var arg = arguments[1];
+
+            //把调用myApply方法的fn函数 的this指向context  并且调用 fn
+
+            //把fn当做是context对象的一个方法
+            var key = Date.now().toString(36);
+            context[key] = this;
+
+            eval("context[key](" + arg.toString() + ")");
+
+            delete context[key];
+
+
+        }
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        fn.myApply(1, [1, 2]);
+        fn.myApply('1', [1, 2]);
+        fn.myApply(true, [1, 2]);
+        fn.myApply(null, [1, 2]);
+        fn.myApply(undefined, [1, 2]);
+        fn.myApply({
+            name: "laowang"
+        }, [1, 2]);
+        fn.myApply(["a", "b"], [1, 2]);
+    </script>
+</body>
+
+</html>

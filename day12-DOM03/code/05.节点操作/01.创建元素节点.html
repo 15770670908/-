@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <ul class="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oBtn = document.getElementById('btn');
+        oBtn.onclick = function () {
+            /* 
+                创建一个元素节点
+                document.createElement();
+
+                创建img标签可以使用
+                new Image();
+            
+            */
+
+            var newLi = document.createElement("li");
+            console.log(newLi);
+
+            var oImg = new Image();
+            console.log(oImg);
+        }
+    </script>
+</body>
+
+</html>

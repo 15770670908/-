@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 500px;
+        height: 500px;
+        background-color: red;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .inner {
+        width: 300px;
+        height: 300px;
+        background-color: green;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+        position: relative;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+        border: 2px solid #000;
+        margin: 50px;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <div class="box"></div>
+      </div>
+    </div>
+    <script>
+      /* 
+            offsetParent:  
+                获取一个元素的最近定位父级
+
+            获取某个元素到文档边缘的距离：
+
+        
+        */
+      var oBox = document.querySelector(".box");
+
+      // console.log(oBox.offsetLeft);
+      /* 
+            oBox.offsetLeft
+            oBox的最近定位父级.offsetLeft
+            oBox的最近定位父级的近定位父级.offsetLeft
+            直到oBox的最近定位父级没有了, 则不再获取
+
+            oBox.offsetLeft
+            oBox.offsetParent.offsetLeft
+            oBox.offsetParent.offsetParent.offsetLeft
+            直到oBox的最近定位父级没有了, 则不再获取
+        
+        
+        */
+      var e = oBox;
+      var sum = 0;
+      while (e) {
+        //如果e是当前被获取的元素，则不加边框，否则要加边框
+        if (e === oBox) {
+          sum += e.offsetLeft;
+        } else {
+          sum += e.clientLeft + e.offsetLeft;
+        }
+
+        //每次让e变成当前元素的最近定位父级
+        e = e.offsetParent;
+      }
+      console.log(sum);
+
+      //函数封装
+
+      function getEleToDoc(Ele) {
+        var e = Ele;
+        var l = 0,
+          t = 0;
+        while (e) {
+          if (e === Ele) {
+            l += e.offsetLeft;
+            t += e.offsetTop;
+          } else {
+            l += e.offsetLeft + e.clientLeft;
+            t += e.offsetTop + e.clientTop;
+          }
+          e = e.offsetParent;
+        }
+
+        return {
+          left: l,
+          top: t,
+        };
+      }
+
+      var re = getEleToDoc(oBox);
+      console.log(re.left);
+      console.log(re.top);
+    </script>
+  </body>
+</html>

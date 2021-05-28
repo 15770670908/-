@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setInterval(function () {
+            //[0,1)
+            // console.log(Math.random());
+
+            //生成[0-256)的整数随机数
+            // console.log(Math.floor(Math.random() * 256))
+
+            //生成[10-256)的整数随机数
+            // console.log(Math.floor(Math.random() * 246 + 10))
+            console.log(random(20, 30))
+        }, 200)
+
+        //封装一个生成[a,b)随机正整数
+        function random(a, b) {
+            return Math.floor(Math.random() * (b - a) + a);
+        }
+
+
+        //
+
+
+    </script>
+</body>
+
+</html>

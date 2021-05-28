@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            switch语句 ：
+                switch(value){
+                    case value1:
+                        XXXX;
+                        break;
+                    case value2:
+                        XXXX;
+                        break;
+                    case value3:
+                        XXXX;
+                        break;
+                    default:
+                        XXX
+                }
+                
+
+            注意事项：
+                - switch的判断是全等判断
+                - break的作用，退出switch语句，如果不书写break，将一直按顺序执行其他case的语句，直到碰到break为止
+                - default语句是为了处理所有情况都不符合的时候
+
+        */
+
+
+        var a = 1;
+        switch (a) {
+            case 1:
+                alert("1111");
+                // break;
+            case 2:
+                alert("2222");
+                // break;
+            case 3:
+                alert("33333");
+                break;
+            case 4:
+                alert("4444");
+                break;
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+                alert("hello world");
+                break;
+            default:
+                alert("其他");
+
+        }
+    </script>
+</body>
+
+</html>

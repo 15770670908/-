@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: hotpink;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box');
+
+        oBox.onmousedown = function (e) {
+            //鼠标按下的时候，向获取当前元素的默认位置
+            var boxLoaction = {
+                left: oBox.offsetLeft,
+                top: oBox.offsetTop
+            }
+
+            console.log(boxLoaction);
+
+            //鼠标按下的时候，获取当前的clientX clientY
+            var mouseToWin = {
+                x: e.clientX,
+                y: e.clientY
+            }
+
+            console.log(mouseToWin);
+
+            //绑定鼠标移动事件
+            document.onmousemove = function (e) {
+                //当鼠标移动的时候，实时获取最新的clientX
+                //把最新的clientX减去按下时候的clientX，此时可以计算出改变的距离
+                //改变的距离计算完成之后，再加上元素原有的位置信息，得到最新的位置
+                var oBoxPoint = {
+                    x: e.clientX - mouseToWin.x + boxLoaction.left,
+                    y: e.clientY - mouseToWin.y + boxLoaction.top
+                }
+                // console.log(oBoxPoint);
+
+                //判断临界值
+                if (oBoxPoint.x <= 0) {
+                    oBoxPoint.x = 0;
+                } else if (oBoxPoint.x >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                    oBoxPoint.x = document.documentElement.clientWidth - oBox.offsetWidth
+                }
+
+                if (oBoxPoint.y <= 0) {
+                    oBoxPoint.y = 0;
+                } else if (oBoxPoint.y >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                    oBoxPoint.y = document.documentElement.clientHeight - oBox.offsetHeight
+                }
+
+
+                //把最终的位置赋值
+                oBox.style.left = oBoxPoint.x + "px";
+                oBox.style.top = oBoxPoint.y + "px";
+            }
+
+
+            document.onmouseup = function () {
+                //松开以后 清空移动事件
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

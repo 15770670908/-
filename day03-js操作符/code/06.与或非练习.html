@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 判断两个数，如果有一个是非数字，那么就提示用户，否则就计算两个数字的和
+
+      //因为表单默认是字符串，所以初始化两个值为字符串
+      var num1 = "a";
+      var num2 = "123";
+
+      /* isNaN(num1)
+        isNaN(num2) */
+      if (isNaN(num1) || isNaN(num2)) {
+        alert("存在非纯数字");
+      } else {
+        alert(Number(num1) + Number(num2));
+      }
+
+      /* if (!(isNaN(num1) || isNaN(num2))) {
+        alert(Number(num1) + Number(num2));
+      } else {
+        alert("存在非纯数字");
+      } */
+
+      /* if (!isNaN(num1) && !isNaN(num2)) {
+            alert(Number(num1) + Number(num2));
+        } else {
+            alert("存在非纯数字")
+        } */
+    </script>
+  </body>
+</html>

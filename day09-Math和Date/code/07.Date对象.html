@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Date对象：
+                获取当前的时间：new Date();
+                计算机保存时间 保存的是当前到1970年1月1日8点的总毫秒数
+        */
+
+        var now = new Date();
+        console.log(now);
+
+        //得到原始值
+        console.log(now.valueOf());
+
+        //事件转成数组 也是毫秒数
+        console.log(+now)
+    </script>
+</body>
+
+</html>

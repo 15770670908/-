@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        外部引入：
+            默认情况：碰到js先下载并立马执行
+
+            defer：(异步+延迟)碰到js 可以进行异步下载（不停止解析html），等待html全部解析完成，才执行js
+                ：如果加载多个js，最后还是按照js书写顺序执行（保证顺序）
+
+            async：(异步)碰到js 异步下载，js下载完成后立马执行
+                ：因为下载完立马执行，js大小不一，所以可能不能按照书写顺序执行js
+     -->
+    <script async src="./index.js"></script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

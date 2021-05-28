@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="con"></div>
+    <script>
+        /* 
+            倒计时：
+                需要现在的时间未来的时间  得到一个差值
+        */
+        var oCon = document.getElementById('con')
+        setInterval(function () {
+            var now = new Date();
+            var duanWu = new Date("2021-6-14");
+
+            //因为原始值保存的都是时间戳 所以可以直接相减
+            var allTime = duanWu - now;
+            console.log(allTime)
+
+            //拿差值的毫秒数 对1天的总毫秒数进行 除法运算
+            var day = Math.floor(allTime / (1000 * 60 * 60 * 24));
+            day = day < 10 ? "0" + day : day;
+            //余数就是不满一天的毫秒数
+            var _day = allTime % (1000 * 60 * 60 * 24);
+
+
+            var hours = Math.floor(_day / (1000 * 60 * 60));
+            hours = hours < 10 ? "0" + hours : hours;
+            var _hours = _day % (1000 * 60 * 60);
+
+            var minutes = Math.floor(_hours / (1000 * 60));
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            var _minutes = _hours % (1000 * 60);
+
+            var seconds = Math.floor(_minutes / 1000);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            var milliSeconds = _minutes % 1000;
+
+            var str = "距离端午节还有" + day + "天" + hours + "小时" + minutes + "分" + seconds + "秒" + milliSeconds +
+                "毫秒";
+            // console.log(str);
+            oCon.textContent = str;
+        }, 1)
+    </script>
+</body>
+
+</html>

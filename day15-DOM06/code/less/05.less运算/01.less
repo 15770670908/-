@@ -1,0 +1,14 @@
+#outer {
+    //单位以第一个单位优先
+    width: 30px + 100rem;
+    width: 30 + 100rem;
+
+    height: 300px - 30;
+
+    height: 40 * 20px;
+
+    height: 1000 / 2px;
+
+    //less因为编译css的时候 页面没有渲染 所以无法进行精确的百分比计算
+    width: 100% - 10px;
+}

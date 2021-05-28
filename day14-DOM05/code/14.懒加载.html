@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        #box {
+            width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border: 1px solid #000;
+        }
+
+        #box img {
+            width: 480px;
+            height: 300px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="../images/loading.gif" data-src="../images/01.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/02.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/03.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/04.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/05.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/06.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/07.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/08.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/09.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/10.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/11.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/12.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/13.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/14.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/15.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/16.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/17.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/18.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/19.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/20.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/21.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/22.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/23.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/24.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/25.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/26.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/27.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/28.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/29.jpg" alt="" />
+        <img src="../images/loading.gif" data-src="../images/30.jpg" alt="" />
+    </div>
+
+    <script>
+        function getEleToDoc(Ele) {
+            var e = Ele;
+            var l = 0,
+                t = 0;
+            while (e) {
+                if (e === Ele) {
+                    l += e.offsetLeft;
+                    t += e.offsetTop;
+                } else {
+                    l += e.offsetLeft + e.clientLeft;
+                    t += e.offsetTop + e.clientTop;
+                }
+                e = e.offsetParent;
+            }
+
+            return {
+                left: l,
+                top: t,
+            };
+        }
+
+        var oImgs = document.querySelectorAll("#box img");
+        //只要滚动条发生滚动，则开始判断
+        window.onload = window.onscroll = function () {
+            oImgs.forEach(function (item, index) {
+                //当图片的顶部到文档上边缘的总距离 小于等于 系统滚动条的距离+窗口的高度
+                //满足以上条件的时候 则说明图片要进入窗口了，则要加载
+                if (getEleToDoc(item).top <= window.pageYOffset + document.documentElement.clientHeight) {
+                    item.src = item.dataset.src;
+                }
+            });
+        };
+    </script>
+</body>
+
+</html>

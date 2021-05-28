@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            overflow: auto;
+        }
+
+        #box .con {
+            height: 800px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="con"></div>
+    </div>
+    <script>
+        /* 
+            滚动条事件:scroll
+                - 绑定给某个有滚动条的元素
+                - 绑定给系统滚动条（绑定给window或者document）
+        
+        */
+
+        var oBox = document.getElementById('box');
+        oBox.onscroll = function () {
+            console.log("box的滚动条滚了")
+        }
+
+
+        /* window.onscroll = function () {
+            console.log("window的滚动条滚了")
+        } */
+
+        document.onscroll = function () {
+            console.log("window的滚动条滚了")
+        }
+    </script>
+</body>
+
+</html>

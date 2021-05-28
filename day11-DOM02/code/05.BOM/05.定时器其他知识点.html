@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //因为定时器函数是直接自己调用的，所以this指向window
+        /* setTimeout(function () {
+            console.log(this);
+        }, 1000); */
+
+
+        //定时器函数是除了事件函数以外的 第二种 异步代码
+        //绑定定时器是同步的 
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i); //5 5 5 5 5 
+            }, 0)
+        }
+
+
+        //修改如上代码 让弹出 0 1 2 3 4
+        for (var i = 0; i < 5; i++) {
+            (function (i) {
+                setTimeout(function () {
+                    console.log(i); //0 1 2 3 4
+                }, 0)
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

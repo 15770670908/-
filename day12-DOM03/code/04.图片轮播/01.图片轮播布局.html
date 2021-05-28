@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 251px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: auto;
+        }
+
+        .con {
+            width: 1500px;
+            display: flex;
+
+        }
+
+        .con img {
+            width: 251px;
+            height: 500px;
+        }
+
+        .left,
+        .right {
+            width: 30px;
+            height: 30px;
+            background-color: rgba(1, 200, 201, .7);
+            position: absolute;
+            border-radius: 50%;
+            line-height: 30px;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+
+        .left {
+            left: 10px;
+        }
+
+        .right {
+            right: 10px;
+        }
+
+        .list {
+            display: flex;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .list li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin: 5px;
+            background-color: rgba(255, 255, 255, .3);
+        }
+
+        .list li.active {
+            background-color: rgba(255, 255, 255, .9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="../../images/01.jpg" alt="">
+                <img src="../../images/02.jpg" alt="">
+                <img src="../../images/03.jpg" alt="">
+                <img src="../../images/04.jpg" alt="">
+                <img src="../../images/05.jpg" alt="">
+            </div>
+
+            <p class="left">&lt;</p>
+            <p class="right">&gt;</p>
+
+            <ul class="list">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

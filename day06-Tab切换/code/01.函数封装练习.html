@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.求1 - n之间所有数的和
+        /* function add1(n) {
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        //函数调用(可以确定是否有返回值，还有传递的参数)
+        var re = add1(100);
+        console.log(re) */
+
+
+
+        // 求n - m之间所有数的和
+        /* function add1(n, m) {
+            var sum = 0;
+            for (var i = n; i <= m; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+        //函数调用(可以确定是否有返回值，还有传递的参数)
+        var re = add1(10, 100);
+        console.log(re) */
+
+        // 圆的面积
+        function arc(r) {
+            return 3.14 * r * r;
+        }
+
+        // 求2个数中的最大值
+        function max(a, b) {
+            /* if (a > b) {
+                return a;
+            } else {
+                return b;
+            } */
+
+            return a > b ? a : b;
+        }
+        var re = max(3, 5);
+        console.log(re);
+
+        // 求3个数中的最大值
+        function max3(a, b, c) {
+            if (a > b) {
+                if (a > c) {
+                    return a;
+                } else {
+                    return c;
+                }
+            } else {
+                if (b > c) {
+                    return b;
+                } else {
+                    return c;
+                }
+            }
+        }
+
+        // 判断一个数是否是素数(又叫质数， 只能被1和自身整数的数)
+        function isPrimeNum(num) {
+            //遍历 1-num之间的所有的整数，然后让num进行求模，一旦能够整除，则说明这个值不是质数
+            for (var i = 2; i < num; i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+
+            //当for运行完成，仍然没有return false，说明不能被其他，说明是质数
+            return true;
+        }
+        var re = isPrimeNum(14);
+        console.log(re);
+
+
+        // 求任意个数的最大值
+        function maxEvery() {
+            var max = 0;
+            //遍历所有的实参，一个个的和max进行比较，如果比max大，则覆盖max的值，遍历完成之后，max的值就是整个实参最大的值
+            for (var i = 0; i < arguments.length; i++) {
+                if (max < arguments[i]) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var re = maxEvery(3, 5, 6, 4, 8, 6, 9, 3, 4);
+        console.log(re);
+
+
+        // 打印出3-100之间所有的质数
+        //遍历拿到3-100的值，用来判断
+
+        /*  outer:
+             for (var i = 3; i <= 100; i++) {
+                 //外边的for循环拿到的值 进行依次判断
+                 inner: for (var j = 2; j < i; j++) {
+                     if (i % j === 0) {
+                         //只要当前的i有出现整除为0的，说明当前的i不是质数
+                         continue outer;
+                     }
+                 }
+
+                 console.log(i);
+
+             } */
+
+
+
+        /* for (var i = 3; i <= 100; i++) {
+            //每次拿到一个值，就认为他是一个质数
+            var flag = true;
+            //外边的for循环拿到的值 进行依次判断
+            for (var j = 2; j < i; j++) {
+                if (i % j === 0) {
+                    //只要当前的i有出现整除为0的，说明当前的i不是质数，把开关关闭
+                    flag = false;
+                }
+            }
+
+
+            //每次一个for执行完成，则开始判断 如果开关打开 则说明是质数
+            if (flag) {
+                console.log(i);
+            }
+
+        } */
+    </script>
+</body>
+
+</html>

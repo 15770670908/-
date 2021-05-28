@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            手写new
+                - new做了什么？
+                    - 创建了一个对象，并把这个对象返回
+                    - 把构造函数的this指向这个创建的对象
+                    - 将这个对象的原型链修改，将隐式原型指向构造函数的显式原型
+        
+        */
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+            return [];
+        }
+        Person.prototype.do = function () {
+            console.log("do")
+        }
+
+        var p1 = new Person("laowang", 18);
+        console.log(p1);
+
+
+        function myNew(constur) {
+            //1.创建一个对象
+            var obj = {};
+            //2.调用构造函数，并把构造函数的this指向当前的对象
+            var arg = Array.from(arguments).slice(1);
+            //re就是函数调用后的返回值
+            var re = constur.apply(obj, arg);
+            //3.修改原型链，让obj的隐式原型指向构造函数的显式原型
+            obj.__proto__ = constur.prototype;
+
+            //4.返回对象之前，判断构造函数的返回值是基本类型还是对象类型
+            //如果是对象类型，则直接返回构造函数的返回值，否则返回obj
+            if (typeof re === "object" && re !== null || typeof re === 'function') {
+                //如果是object类型 则直接返回re
+                return re;
+            }
+
+            //如果不符合上边的条件，则返回obj对象
+            return obj;
+        }
+
+        var p2 = myNew(Person, "xiaowang", 20);
+        console.log(p2);
+
+        console.log(p2.do === p1.do); //true
+    </script>
+</body>
+
+</html>

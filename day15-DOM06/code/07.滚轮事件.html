@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            滚轮事件：
+                chrome/ie:
+                    onmousewheel事件
+                        上滚：e.wheelDelta: 120
+                        下滚：e.wheelDelta: -120
+
+                firefox:
+                    DOMMouseScroll事件
+                        上滚：e.detail -3
+                        下滚：e.detail 3
+        
+        */
+
+        var oBox = document.getElementById('box');
+        var w = 200;
+        /* oBox.onmousewheel = function (e) {
+            // console.log(1);
+            // console.log(e);
+            if (e.wheelDelta > 0) {
+                w += 5;
+                console.log("上滚上滚");
+            } else {
+                w -= 5;
+                console.log("下滚下滚");
+            }
+
+            oBox.style.width = w + "px";
+
+        }
+
+        oBox.addEventListener("DOMMouseScroll", function (e) {
+            // console.log(e);
+            if (e.detail > 0) {
+                w -= 5;
+                console.log("下滚下滚");
+            } else {
+                w += 5;
+                console.log("上滚上滚");
+            }
+            oBox.style.width = w + "px";
+        }, false); */
+
+
+
+        function scroll(e) {
+            if (e.wheelDelta) {
+                if (e.wheelDelta > 0) {
+                    w += 5;
+                    console.log("上滚上滚");
+                } else {
+                    w -= 5;
+                    console.log("下滚下滚");
+                }
+            } else {
+                if (e.detail > 0) {
+                    w -= 5;
+                    console.log("下滚下滚");
+                } else {
+                    w += 5;
+                    console.log("上滚上滚");
+                }
+            }
+
+            oBox.style.width = w + "px";
+        }
+        oBox.addEventListener("DOMMouseScroll", scroll, false);
+        oBox.onmousewheel = scroll;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            toString()：
+                把数组转字符串的方法，有时在一些隐式转换的时候也会调用toString
+                
+                
+            toLocalString()
+                根据电脑运行环境决定转换的值
+
+        
+        
+        */
+        /* var arr = [1, 2, 333333333, 4, "hello"];
+        var re = arr.toString();
+        console.log(re); */
+
+
+        /* var arr = [1, 2, 333333333, 4, "hello"];
+        //重写toString 观察到arr隐式转换的时候可能调用toString
+        arr.toString = function () {
+            return "abc";
+        }
+        console.log(arr + 1); */
+
+
+
+        var arr = [1, 2, 333333333, 4, "hello"];
+        var re = arr.toLocaleString();
+        console.log(re);
+    </script>
+</body>
+
+</html>

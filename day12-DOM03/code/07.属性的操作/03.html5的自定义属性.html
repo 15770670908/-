@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <div id="box" data-abc="hello"></div>
+    <script>
+        /* 
+            h5自定义属性
+                - 每一个DOM节点都有一个dataset属性,dateset属性是一个对象，包含了当前DOM元素上所有的自定义属性
+                - h5要求 自定义属性使用data-*前缀
+                - 我们只需要操作dataset属性，即可操作元素的自定义属性
+        */
+
+        var oBtn = document.getElementById('btn');
+        var oBox = document.getElementById('box');
+
+        oBtn.onclick = function () {
+            console.log(oBox.dataset);
+
+            //增
+            // oBox.dataset.say = "HowAreU";
+
+            //删
+            // delete oBox.dataset.abc;
+
+            //查
+            // console.log(oBox.dataset.abc);
+        }
+    </script>
+</body>
+
+</html>

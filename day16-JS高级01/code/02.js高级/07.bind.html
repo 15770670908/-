@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            bind:
+                - 语法和call一样
+                - bind也是改变函数的上下文this执行
+                - bind并不会调用函数，而是返回了一个改变this指向后的函数
+        
+        
+        */
+
+        function fn(a, b) {
+            console.log(this, a + b);
+        }
+
+        // fn(1, 2);
+        var re = fn.bind(["a", "b"], 1, 2);
+        console.log(re);
+        re();
+
+        //bind的场景
+        document.onclick = function () {
+            setTimeout((function () {
+                console.log(this);
+            }).bind(this), 10)
+        }
+    </script>
+</body>
+
+</html>

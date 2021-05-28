@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            overflow: auto;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .inner {
+            width: 1000px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div class="inner"></div>
+    </div>
+    <script>
+        /* 
+            scrollWidth:
+                获取元素内包含的完全内容的宽度
+        
+        */
+        var oBox = document.getElementById('box');
+        console.log(oBox.scrollWidth)
+    </script>
+</body>
+
+</html>

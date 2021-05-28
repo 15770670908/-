@@ -1,0 +1,9 @@
+{
+    "student": [{
+        "name": "xiaowang",
+        "age": 18,
+        "score": {
+            "math": 30
+        }
+    }]
+}
